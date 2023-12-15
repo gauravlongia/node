@@ -1,0 +1,48 @@
+<!-- settings.ejs -->
+ 
+<%- include('inc/header') -%>
+<%- include('inc/leftbar') -%>
+
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <% if(message.success ) {%>
+          <div class="card-body">
+            <div class="alert alert-success alert-dismissible" role="alert"> <%= message.success %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div> 
+        <% }%>
+       
+         <div class="card-body">
+          <form method="POST" action="/admin/settings" class="row g-3"  >  
+            <input type="hidden" name="id" value="<%= data[0].id %>">
+            <div class="col-md-12">
+                <label class="form-label" for="formValidationName">Phone</label>
+                <input type="text" id="formValidationName" class="form-control"  value="<%= data[0].phone  %>" placeholder="Sort No." name="phone" /> 
+                <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
+               </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div>
+
+              <div class="col-md-12">
+                <label class="form-label" for="formValidationName">Email</label>
+                <input type="text" id="formValidationName" class="form-control" value="<%= data[0].email  %>" placeholder="Category Name" name="email" /> 
+                <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
+            </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div>
+
+              <div class="col-md-12">
+                <label class="form-label" for="formValidationName">Location</label>
+                <input type="text" id="formValidationName" class="form-control" value="<%= data[0].address  %>" placeholder="Category Name" name="address" /> <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
+            </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div> 
+            <div class="col-12">
+              <button type="submit" name="submitButton" class="btn btn-primary">Submit </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="my-5"> 
+
+  <%- include('inc/footer') -%>
+ 
