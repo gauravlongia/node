@@ -1,0 +1,4423 @@
+
+<footer class="footer">
+  <div class="container-md">
+      <div id="Subs" class="newsletter">
+          <img src="/static/img/circle-img-1.svg" alt="" class="Circle c11">
+          <img src="/static/img/circle-img-1.svg" alt="" class="Circle c12">
+          <div class="Sub_head">
+              <h2>Discover useful new AI tools.</h2>
+              <p>Join 150,000+ AI enthusiasts getting weekly updates on new tools.</p>
+              <a href="/blogs" class="CTA">Read past issues</a>
+         </div>
+      </div>
+      </div>
+      <!-- footer newsletter end  -->
+      <div class="footer_lnk">
+          <div class="container-fluid">
+          <div class="footer_row row">
+          <div class="ftr_left col-lg-3 col-md-12">
+              <img class="logo" src="storage/app/public/logos/971149004image.png" alt="Logo">
+              <div class="social_ftr">
+                      <a href="javascript:void(0)" target="_blank"><img src="/static/img/linkedin.svg" alt="Icon"></a>
+                      <a href="javascript:void(0)" target="_blank"><img src="/static/img/twitter-new-logo.svg" alt="Icon"></a>
+                      <a href="javascript:void(0)" target="_blank"><img src="/static/img/youtube.svg" alt="Icon"></a>
+                      <a href="javascript:void(0)" target="_blank"><img src="/static/img/discord.svg" alt="Icon"></a>
+              </div>
+          </div>
+          <div class="nav_ftr col-lg-6 col-md-12">
+              <ul>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/about">About Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/contact">Contact Us</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/privacy-policy">Privacy Policy</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/affiliate-disclaimer">Affiliate Disclaimer</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/terms-and-conditions">Terms & Use</a>
+                  </li>
+              </ul>
+          </div>
+          <div class="nav_ftr col-lg-3 col-md-12">
+              <form>
+                  <div class="ftr_form">
+                      <small style="color:#ff0505" class="errorhai"></small>
+                      <small style="color:#33f533" class="sahihai"></small>
+                      <input type="email" id="semail" placeholder="Enter Email" required />
+
+                      <button class="CTA" type="button" onclick="subit()">Subscribe</button>
+                      <span>Unsubscribe at any time.</span>
+
+                  </div>
+              </form>
+          </div>
+      </div>
+<script>
+function subit(){
+$('.errorhai').text('');
+$('.sahihai').text('');
+var semail=$('#semail').val();
+if(semail.trim()!=''){
+emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+if(emailReg.test(semail)){
+
+$.ajax({
+          url: 'https://futuritech.io/subcribe',
+          type: 'POST',
+          data: {
+          _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+          semail : semail },
+          success: function(result) {
+
+              $('#semail').val('');
+              $('.sahihai').text('Successfully Subscribed');
+          }
+      });
+
+}else{
+$('.errorhai').text('Invalid Email');
+}
+
+
+}else{
+  $('.errorhai').text('Fill Email');
+}
+
+}
+</script>
+  </div>
+  </div>
+
+  <div class="copyright">
+          <p>Copyright © 2023 - Futuritech™ All Rights Reserved</p>
+      </div>
+</footer>
+<!-- Footer End -->
+
+<!-- Js Files -->
+<script src="/static/js/jquery-3.7.0.min.js"></script>
+<script src="/static/js/bootstrap.bundle.js"></script>
+<script src="/static/slider/slider.js"></script>
+<script>
+$(document).ready(function() {
+$(window).keydown(function(event){
+if(event.keyCode == 13) {
+  event.preventDefault();
+  return false;
+}
+});
+});
+</script>
+<!-- mobile search toggle script  -->
+<script>
+if (window.matchMedia("(max-width: 991px)").matches) {
+  $('.search-toggle').addClass('closed');
+      $('.search-toggle .search-icon').click(function(e) {
+      if ($('.search-toggle').hasClass('closed')) {
+          $('.search-toggle').removeClass('closed').addClass('opened');
+          $('.search-toggle, .search-container').addClass('opened');
+          $('#search-terms').focus();
+          $('body').addClass('faded-bg');
+      } else {
+          $('.search-toggle').removeClass('opened').addClass('closed');
+          $('.search-toggle, .search-container').removeClass('opened');
+          $('body').removeClass('faded-bg');
+      }
+      });
+} else {
+// Viewport is greater than 700 pixels wide
+}
+</script>
+<!-- list and grid view listing page  -->
+<script>
+function showList(e) {
+var $gridCont = $('.grid-container');
+e.preventDefault();
+$gridCont.hasClass('list-view') ? $gridCont.removeClass('list-view') : $gridCont.addClass('list-view');
+}
+function gridList(e) {
+var $gridCont = $('.grid-container')
+e.preventDefault();
+$gridCont.removeClass('list-view');
+}
+
+$(document).on('click', '.btn-grid', gridList);
+$(document).on('click', '.btn-list', showList);
+</script>
+
+<!-- ai news slider script  -->
+<script>
+$('.news_slider').owlCarousel({
+loop: false,
+autoplay:true,
+margin: 30,
+dots: false,
+nav: true,
+rewind:true,
+responsiveClass: true,
+slideBy: 1,
+
+responsive: {
+  0: {
+  items: 1,
+  margin:10,
+  stagePadding: 0,
+  },
+  575: {
+  items: 1,
+  margin: 20,
+  stagePadding: 80,
+  },
+  768: {
+  items: 1,
+  margin: 20,
+  stagePadding: 100,
+  },
+  900: {
+  items: 2,
+  margin: 20,
+  stagePadding: 80,
+  },
+  1020: {
+  items: 2,
+  margin: 20,
+  stagePadding: 100,
+  },
+  1200: {
+  items: 2,
+  margin: 20,
+  stagePadding: 180,
+  },
+  1366: {
+  items: 2,
+  margin: 20,
+  stagePadding: 200,
+  },
+  1751: {
+  items: 2,
+  margin: 20,
+  stagePadding: 250,
+  },
+  1921: {
+  items: 3,
+  margin: 20,
+  stagePadding: 0,
+  }
+
+}
+
+
+});
+
+</script>
+
+<!-- screenshot slider  -->
+<script>
+$('.photo_slider').owlCarousel({
+loop: false,
+autoplay:true,
+margin: 20,
+dots: false,
+nav: true,
+rewind:true,
+responsiveClass: true,
+slideBy: 1,
+
+responsive: {
+  0: {
+  items: 1,
+  margin:10,
+  stagePadding: 40,
+  },
+  600: {
+  items: 2,
+  margin: 20,
+  },
+  992: {
+  items: 2,
+  margin: 20,
+  stagePadding: 110,
+  },
+  1200: {
+  items: 2,
+  margin: 20,
+  stagePadding: 180,
+  },
+  1921: {
+  items: 3,
+  margin: 20,
+  stagePadding: 0,
+  }
+
+}
+});
+</script>
+
+
+<!-- similar products slider  -->
+<script>
+$('.similar_slider').owlCarousel({
+loop: false,
+autoplay:true,
+margin: 20,
+dots: false,
+nav: true,
+rewind:true,
+responsiveClass: true,
+slideBy: 1,
+
+responsive: {
+  0: {
+  items: 1,
+  margin:10,
+  },
+  600: {
+  items: 2,
+  margin: 20,
+  },
+  992: {
+  items: 2,
+  margin: 20,
+  },
+  1200: {
+  items: 3,
+  margin: 20,
+  stagePadding: 0,
+  },
+  1921: {
+  items: 3,
+  margin: 20,
+  stagePadding: 0,
+  }
+
+}
+});
+</script>
+
+<!-- similar products slider 2 (ai tools slider ) -->
+<script>
+$('.similar_slider2').owlCarousel({
+loop: false,
+autoplay:true,
+margin: 20,
+dots: false,
+nav: true,
+rewind:true,
+responsiveClass: true,
+slideBy: 1,
+
+responsive: {
+  0: {
+  items: 1,
+  margin:10,
+  },
+  600: {
+  items: 2,
+  margin: 20,
+  },
+  992: {
+  items: 3,
+  margin: 20,
+  },
+  1200: {
+  items: 3,
+  margin: 20,
+  stagePadding: 0,
+  },
+  1921: {
+  items: 3,
+  margin: 20,
+  stagePadding: 0,
+  }
+
+}
+});
+</script>
+
+
+<script>
+$(window).on('load', function () { // makes sure that whole site is loaded
+  $('#status').fadeOut();
+  $('#preloader').delay(1000).fadeOut('slow');
+});
+</script>
+<script>
+$(window).scroll(function(){
+  $('nav').toggleClass('scrolled', $(this).scrollTop() > 50);
+});
+</script>
+
+<!-- on scroll navigation script  -->
+<script>
+$('.nav-link').on('click',function(){
+  $('.nav-link').removeClass('active');
+  $(this).addClass('active');
+});
+
+$('.nav-link').on('click', function(){
+  $('.navbar-collapse').collapse('hide');
+});
+
+</script>
+<script>
+AOS.init();
+</script>
+
+
+<!-- script for copy code  -->
+<script>
+let copyText = document.querySelector(".copy-text");
+copyText.querySelector("button").addEventListener("click", function () {
+let input = copyText.querySelector("input.text");
+input.select();
+document.execCommand("copy");
+copyText.classList.add("active");
+window.getSelection().removeAllRanges();
+setTimeout(function () {
+copyText.classList.remove("active");
+}, 2500);
+});
+
+</script>
+
+
+<!-- sort by drodown script  -->
+<script>
+// $(".custom-select").each(function() {
+//   var classes = $(this).attr("class"),
+//       id      = $(this).attr("id"),
+//       name    = $(this).attr("name"); 
+//   var template =  '<div class="' + classes + '">';
+//       template += '<span class="custom-select-trigger">' + $(this).attr("placeholder") + '</span>';
+//       template += '<div class="custom-options b-select">';
+//       $(this).find("option").each(function() {
+//         template += '<span class="custom-option ' + $(this).attr("class") + '" data-value="' + $(this).attr("value") + '" data-sort="' + $(this).attr("data-sort") + '">' + $(this).html() + '</span>';
+//       });
+//   template += '</div></div>';
+
+//   $(this).wrap('<div class="custom-select-wrapper"></div>');
+//   $(this).hide();
+//   $(this).after(template);
+// });
+// $(".custom-option:first-of-type").hover(function() {
+//   $(this).parents(".custom-options").addClass("option-hover");
+// }, function() {
+//   $(this).parents(".custom-options").removeClass("option-hover");
+// });
+// $(".custom-select-trigger").on("click", function() {
+//   $('html').one('click',function() {
+//     $(".custom-select").removeClass("opened");
+//   });
+//   $(this).parents(".custom-select").toggleClass("opened");
+//   event.stopPropagation();
+// });
+// $(".custom-option").on("click", function() {
+//   $(this).parents(".custom-select-wrapper").find("select").val($(this).data("value"));
+//   $(this).parents(".custom-options").find(".custom-option").removeClass("selection");
+//   $(this).addClass("selection");
+//   $(this).parents(".custom-select").removeClass("opened");
+//   $(this).parents(".custom-select").find(".custom-select-trigger").text($(this).text());
+// });
+</script>
+
+
+<script>
+$('.openme').click(function(e) {
+e.preventDefault();
+let $this = $(this);
+let $li = $this.closest('li');
+if ($li.hasClass('active')) {
+$li.removeClass('active');
+$this.next().removeClass('show');
+$this.next().slideUp(350);
+} else {
+$li.addClass('active');
+$li.siblings().removeClass('active');
+if ($this.next().hasClass('show')) {
+  $this.next().removeClass('show');
+  $this.next().slideUp(350);
+} else {
+  $li.siblings().find('.inner').removeClass('show');
+  $li.siblings().find('.inner').slideUp(350);
+  $this.next().toggleClass('show');
+  $this.next().slideToggle(350);
+}
+}
+});
+
+</script>
+<!-- add to favourites tools or ai plugins script code  -->
+
+<script>
+$(document).ready(function(){
+$("#favheart24").click(function(){
+if($(".ss24").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '24',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti24').html(result);
+    }
+});
+$(".ss24").html('<i class="bi bi-heart"></i>');
+$(".ss24").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '24',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti24').html(result);  }
+});
+$(".ss24").html('<i class="bi bi-heart-fill"></i>');
+$(".ss24").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart25").click(function(){
+if($(".ss25").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '25',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti25').html(result);
+    }
+});
+$(".ss25").html('<i class="bi bi-heart"></i>');
+$(".ss25").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '25',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti25').html(result);  }
+});
+$(".ss25").html('<i class="bi bi-heart-fill"></i>');
+$(".ss25").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart27").click(function(){
+if($(".ss27").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '27',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti27').html(result);
+    }
+});
+$(".ss27").html('<i class="bi bi-heart"></i>');
+$(".ss27").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '27',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti27').html(result);  }
+});
+$(".ss27").html('<i class="bi bi-heart-fill"></i>');
+$(".ss27").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart28").click(function(){
+if($(".ss28").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '28',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti28').html(result);
+    }
+});
+$(".ss28").html('<i class="bi bi-heart"></i>');
+$(".ss28").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '28',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti28').html(result);  }
+});
+$(".ss28").html('<i class="bi bi-heart-fill"></i>');
+$(".ss28").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart29").click(function(){
+if($(".ss29").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '29',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti29').html(result);
+    }
+});
+$(".ss29").html('<i class="bi bi-heart"></i>');
+$(".ss29").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '29',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti29').html(result);  }
+});
+$(".ss29").html('<i class="bi bi-heart-fill"></i>');
+$(".ss29").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart30").click(function(){
+if($(".ss30").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '30',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti30').html(result);
+    }
+});
+$(".ss30").html('<i class="bi bi-heart"></i>');
+$(".ss30").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '30',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti30').html(result);  }
+});
+$(".ss30").html('<i class="bi bi-heart-fill"></i>');
+$(".ss30").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart31").click(function(){
+if($(".ss31").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '31',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti31').html(result);
+    }
+});
+$(".ss31").html('<i class="bi bi-heart"></i>');
+$(".ss31").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '31',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti31').html(result);  }
+});
+$(".ss31").html('<i class="bi bi-heart-fill"></i>');
+$(".ss31").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart32").click(function(){
+if($(".ss32").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '32',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti32').html(result);
+    }
+});
+$(".ss32").html('<i class="bi bi-heart"></i>');
+$(".ss32").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '32',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti32').html(result);  }
+});
+$(".ss32").html('<i class="bi bi-heart-fill"></i>');
+$(".ss32").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart33").click(function(){
+if($(".ss33").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '33',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti33').html(result);
+    }
+});
+$(".ss33").html('<i class="bi bi-heart"></i>');
+$(".ss33").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '33',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti33').html(result);  }
+});
+$(".ss33").html('<i class="bi bi-heart-fill"></i>');
+$(".ss33").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart34").click(function(){
+if($(".ss34").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '34',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti34').html(result);
+    }
+});
+$(".ss34").html('<i class="bi bi-heart"></i>');
+$(".ss34").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '34',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti34').html(result);  }
+});
+$(".ss34").html('<i class="bi bi-heart-fill"></i>');
+$(".ss34").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart35").click(function(){
+if($(".ss35").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '35',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti35').html(result);
+    }
+});
+$(".ss35").html('<i class="bi bi-heart"></i>');
+$(".ss35").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '35',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti35').html(result);  }
+});
+$(".ss35").html('<i class="bi bi-heart-fill"></i>');
+$(".ss35").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart36").click(function(){
+if($(".ss36").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '36',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti36').html(result);
+    }
+});
+$(".ss36").html('<i class="bi bi-heart"></i>');
+$(".ss36").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '36',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti36').html(result);  }
+});
+$(".ss36").html('<i class="bi bi-heart-fill"></i>');
+$(".ss36").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart37").click(function(){
+if($(".ss37").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '37',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti37').html(result);
+    }
+});
+$(".ss37").html('<i class="bi bi-heart"></i>');
+$(".ss37").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '37',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti37').html(result);  }
+});
+$(".ss37").html('<i class="bi bi-heart-fill"></i>');
+$(".ss37").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart38").click(function(){
+if($(".ss38").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '38',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti38').html(result);
+    }
+});
+$(".ss38").html('<i class="bi bi-heart"></i>');
+$(".ss38").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '38',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti38').html(result);  }
+});
+$(".ss38").html('<i class="bi bi-heart-fill"></i>');
+$(".ss38").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart39").click(function(){
+if($(".ss39").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '39',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti39').html(result);
+    }
+});
+$(".ss39").html('<i class="bi bi-heart"></i>');
+$(".ss39").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '39',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti39').html(result);  }
+});
+$(".ss39").html('<i class="bi bi-heart-fill"></i>');
+$(".ss39").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart40").click(function(){
+if($(".ss40").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '40',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti40').html(result);
+    }
+});
+$(".ss40").html('<i class="bi bi-heart"></i>');
+$(".ss40").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '40',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti40').html(result);  }
+});
+$(".ss40").html('<i class="bi bi-heart-fill"></i>');
+$(".ss40").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart41").click(function(){
+if($(".ss41").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '41',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti41').html(result);
+    }
+});
+$(".ss41").html('<i class="bi bi-heart"></i>');
+$(".ss41").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '41',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti41').html(result);  }
+});
+$(".ss41").html('<i class="bi bi-heart-fill"></i>');
+$(".ss41").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart42").click(function(){
+if($(".ss42").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '42',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti42').html(result);
+    }
+});
+$(".ss42").html('<i class="bi bi-heart"></i>');
+$(".ss42").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '42',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti42').html(result);  }
+});
+$(".ss42").html('<i class="bi bi-heart-fill"></i>');
+$(".ss42").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart43").click(function(){
+if($(".ss43").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '43',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti43').html(result);
+    }
+});
+$(".ss43").html('<i class="bi bi-heart"></i>');
+$(".ss43").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '43',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti43').html(result);  }
+});
+$(".ss43").html('<i class="bi bi-heart-fill"></i>');
+$(".ss43").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart44").click(function(){
+if($(".ss44").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '44',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti44').html(result);
+    }
+});
+$(".ss44").html('<i class="bi bi-heart"></i>');
+$(".ss44").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '44',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti44').html(result);  }
+});
+$(".ss44").html('<i class="bi bi-heart-fill"></i>');
+$(".ss44").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart45").click(function(){
+if($(".ss45").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '45',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti45').html(result);
+    }
+});
+$(".ss45").html('<i class="bi bi-heart"></i>');
+$(".ss45").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '45',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti45').html(result);  }
+});
+$(".ss45").html('<i class="bi bi-heart-fill"></i>');
+$(".ss45").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart46").click(function(){
+if($(".ss46").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '46',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti46').html(result);
+    }
+});
+$(".ss46").html('<i class="bi bi-heart"></i>');
+$(".ss46").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '46',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti46').html(result);  }
+});
+$(".ss46").html('<i class="bi bi-heart-fill"></i>');
+$(".ss46").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart48").click(function(){
+if($(".ss48").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '48',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti48').html(result);
+    }
+});
+$(".ss48").html('<i class="bi bi-heart"></i>');
+$(".ss48").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '48',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti48').html(result);  }
+});
+$(".ss48").html('<i class="bi bi-heart-fill"></i>');
+$(".ss48").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart49").click(function(){
+if($(".ss49").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '49',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti49').html(result);
+    }
+});
+$(".ss49").html('<i class="bi bi-heart"></i>');
+$(".ss49").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '49',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti49').html(result);  }
+});
+$(".ss49").html('<i class="bi bi-heart-fill"></i>');
+$(".ss49").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart50").click(function(){
+if($(".ss50").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '50',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti50').html(result);
+    }
+});
+$(".ss50").html('<i class="bi bi-heart"></i>');
+$(".ss50").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '50',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti50').html(result);  }
+});
+$(".ss50").html('<i class="bi bi-heart-fill"></i>');
+$(".ss50").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart51").click(function(){
+if($(".ss51").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '51',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti51').html(result);
+    }
+});
+$(".ss51").html('<i class="bi bi-heart"></i>');
+$(".ss51").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '51',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti51').html(result);  }
+});
+$(".ss51").html('<i class="bi bi-heart-fill"></i>');
+$(".ss51").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart52").click(function(){
+if($(".ss52").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '52',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti52').html(result);
+    }
+});
+$(".ss52").html('<i class="bi bi-heart"></i>');
+$(".ss52").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '52',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti52').html(result);  }
+});
+$(".ss52").html('<i class="bi bi-heart-fill"></i>');
+$(".ss52").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart53").click(function(){
+if($(".ss53").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '53',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti53').html(result);
+    }
+});
+$(".ss53").html('<i class="bi bi-heart"></i>');
+$(".ss53").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '53',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti53').html(result);  }
+});
+$(".ss53").html('<i class="bi bi-heart-fill"></i>');
+$(".ss53").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart54").click(function(){
+if($(".ss54").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '54',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti54').html(result);
+    }
+});
+$(".ss54").html('<i class="bi bi-heart"></i>');
+$(".ss54").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '54',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti54').html(result);  }
+});
+$(".ss54").html('<i class="bi bi-heart-fill"></i>');
+$(".ss54").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart55").click(function(){
+if($(".ss55").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '55',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti55').html(result);
+    }
+});
+$(".ss55").html('<i class="bi bi-heart"></i>');
+$(".ss55").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '55',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti55').html(result);  }
+});
+$(".ss55").html('<i class="bi bi-heart-fill"></i>');
+$(".ss55").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart56").click(function(){
+if($(".ss56").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '56',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti56').html(result);
+    }
+});
+$(".ss56").html('<i class="bi bi-heart"></i>');
+$(".ss56").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '56',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti56').html(result);  }
+});
+$(".ss56").html('<i class="bi bi-heart-fill"></i>');
+$(".ss56").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart57").click(function(){
+if($(".ss57").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '57',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti57').html(result);
+    }
+});
+$(".ss57").html('<i class="bi bi-heart"></i>');
+$(".ss57").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '57',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti57').html(result);  }
+});
+$(".ss57").html('<i class="bi bi-heart-fill"></i>');
+$(".ss57").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart58").click(function(){
+if($(".ss58").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '58',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti58').html(result);
+    }
+});
+$(".ss58").html('<i class="bi bi-heart"></i>');
+$(".ss58").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '58',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti58').html(result);  }
+});
+$(".ss58").html('<i class="bi bi-heart-fill"></i>');
+$(".ss58").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart59").click(function(){
+if($(".ss59").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '59',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti59').html(result);
+    }
+});
+$(".ss59").html('<i class="bi bi-heart"></i>');
+$(".ss59").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '59',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti59').html(result);  }
+});
+$(".ss59").html('<i class="bi bi-heart-fill"></i>');
+$(".ss59").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart60").click(function(){
+if($(".ss60").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '60',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti60').html(result);
+    }
+});
+$(".ss60").html('<i class="bi bi-heart"></i>');
+$(".ss60").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '60',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti60').html(result);  }
+});
+$(".ss60").html('<i class="bi bi-heart-fill"></i>');
+$(".ss60").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart61").click(function(){
+if($(".ss61").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '61',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti61').html(result);
+    }
+});
+$(".ss61").html('<i class="bi bi-heart"></i>');
+$(".ss61").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '61',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti61').html(result);  }
+});
+$(".ss61").html('<i class="bi bi-heart-fill"></i>');
+$(".ss61").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart62").click(function(){
+if($(".ss62").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '62',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti62').html(result);
+    }
+});
+$(".ss62").html('<i class="bi bi-heart"></i>');
+$(".ss62").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '62',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti62').html(result);  }
+});
+$(".ss62").html('<i class="bi bi-heart-fill"></i>');
+$(".ss62").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart63").click(function(){
+if($(".ss63").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '63',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti63').html(result);
+    }
+});
+$(".ss63").html('<i class="bi bi-heart"></i>');
+$(".ss63").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '63',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti63').html(result);  }
+});
+$(".ss63").html('<i class="bi bi-heart-fill"></i>');
+$(".ss63").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart64").click(function(){
+if($(".ss64").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '64',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti64').html(result);
+    }
+});
+$(".ss64").html('<i class="bi bi-heart"></i>');
+$(".ss64").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '64',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti64').html(result);  }
+});
+$(".ss64").html('<i class="bi bi-heart-fill"></i>');
+$(".ss64").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart65").click(function(){
+if($(".ss65").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '65',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti65').html(result);
+    }
+});
+$(".ss65").html('<i class="bi bi-heart"></i>');
+$(".ss65").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '65',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti65').html(result);  }
+});
+$(".ss65").html('<i class="bi bi-heart-fill"></i>');
+$(".ss65").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart66").click(function(){
+if($(".ss66").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '66',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti66').html(result);
+    }
+});
+$(".ss66").html('<i class="bi bi-heart"></i>');
+$(".ss66").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '66',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti66').html(result);  }
+});
+$(".ss66").html('<i class="bi bi-heart-fill"></i>');
+$(".ss66").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart67").click(function(){
+if($(".ss67").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '67',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti67').html(result);
+    }
+});
+$(".ss67").html('<i class="bi bi-heart"></i>');
+$(".ss67").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '67',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti67').html(result);  }
+});
+$(".ss67").html('<i class="bi bi-heart-fill"></i>');
+$(".ss67").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart68").click(function(){
+if($(".ss68").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '68',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti68').html(result);
+    }
+});
+$(".ss68").html('<i class="bi bi-heart"></i>');
+$(".ss68").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '68',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti68').html(result);  }
+});
+$(".ss68").html('<i class="bi bi-heart-fill"></i>');
+$(".ss68").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart69").click(function(){
+if($(".ss69").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '69',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti69').html(result);
+    }
+});
+$(".ss69").html('<i class="bi bi-heart"></i>');
+$(".ss69").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '69',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti69').html(result);  }
+});
+$(".ss69").html('<i class="bi bi-heart-fill"></i>');
+$(".ss69").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart70").click(function(){
+if($(".ss70").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '70',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti70').html(result);
+    }
+});
+$(".ss70").html('<i class="bi bi-heart"></i>');
+$(".ss70").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '70',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti70').html(result);  }
+});
+$(".ss70").html('<i class="bi bi-heart-fill"></i>');
+$(".ss70").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart71").click(function(){
+if($(".ss71").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '71',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti71').html(result);
+    }
+});
+$(".ss71").html('<i class="bi bi-heart"></i>');
+$(".ss71").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '71',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti71').html(result);  }
+});
+$(".ss71").html('<i class="bi bi-heart-fill"></i>');
+$(".ss71").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart72").click(function(){
+if($(".ss72").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '72',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti72').html(result);
+    }
+});
+$(".ss72").html('<i class="bi bi-heart"></i>');
+$(".ss72").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '72',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti72').html(result);  }
+});
+$(".ss72").html('<i class="bi bi-heart-fill"></i>');
+$(".ss72").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart73").click(function(){
+if($(".ss73").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '73',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti73').html(result);
+    }
+});
+$(".ss73").html('<i class="bi bi-heart"></i>');
+$(".ss73").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '73',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti73').html(result);  }
+});
+$(".ss73").html('<i class="bi bi-heart-fill"></i>');
+$(".ss73").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart74").click(function(){
+if($(".ss74").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '74',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti74').html(result);
+    }
+});
+$(".ss74").html('<i class="bi bi-heart"></i>');
+$(".ss74").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '74',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti74').html(result);  }
+});
+$(".ss74").html('<i class="bi bi-heart-fill"></i>');
+$(".ss74").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart81").click(function(){
+if($(".ss81").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '81',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti81').html(result);
+    }
+});
+$(".ss81").html('<i class="bi bi-heart"></i>');
+$(".ss81").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '81',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti81').html(result);  }
+});
+$(".ss81").html('<i class="bi bi-heart-fill"></i>');
+$(".ss81").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart82").click(function(){
+if($(".ss82").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '82',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti82').html(result);
+    }
+});
+$(".ss82").html('<i class="bi bi-heart"></i>');
+$(".ss82").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '82',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti82').html(result);  }
+});
+$(".ss82").html('<i class="bi bi-heart-fill"></i>');
+$(".ss82").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart83").click(function(){
+if($(".ss83").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '83',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti83').html(result);
+    }
+});
+$(".ss83").html('<i class="bi bi-heart"></i>');
+$(".ss83").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '83',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti83').html(result);  }
+});
+$(".ss83").html('<i class="bi bi-heart-fill"></i>');
+$(".ss83").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart84").click(function(){
+if($(".ss84").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '84',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti84').html(result);
+    }
+});
+$(".ss84").html('<i class="bi bi-heart"></i>');
+$(".ss84").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '84',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti84').html(result);  }
+});
+$(".ss84").html('<i class="bi bi-heart-fill"></i>');
+$(".ss84").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart85").click(function(){
+if($(".ss85").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '85',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti85').html(result);
+    }
+});
+$(".ss85").html('<i class="bi bi-heart"></i>');
+$(".ss85").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '85',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti85').html(result);  }
+});
+$(".ss85").html('<i class="bi bi-heart-fill"></i>');
+$(".ss85").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart86").click(function(){
+if($(".ss86").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '86',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti86').html(result);
+    }
+});
+$(".ss86").html('<i class="bi bi-heart"></i>');
+$(".ss86").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '86',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti86').html(result);  }
+});
+$(".ss86").html('<i class="bi bi-heart-fill"></i>');
+$(".ss86").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart87").click(function(){
+if($(".ss87").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '87',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti87').html(result);
+    }
+});
+$(".ss87").html('<i class="bi bi-heart"></i>');
+$(".ss87").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '87',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti87').html(result);  }
+});
+$(".ss87").html('<i class="bi bi-heart-fill"></i>');
+$(".ss87").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart88").click(function(){
+if($(".ss88").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '88',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti88').html(result);
+    }
+});
+$(".ss88").html('<i class="bi bi-heart"></i>');
+$(".ss88").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '88',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti88').html(result);  }
+});
+$(".ss88").html('<i class="bi bi-heart-fill"></i>');
+$(".ss88").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart89").click(function(){
+if($(".ss89").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '89',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti89').html(result);
+    }
+});
+$(".ss89").html('<i class="bi bi-heart"></i>');
+$(".ss89").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '89',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti89').html(result);  }
+});
+$(".ss89").html('<i class="bi bi-heart-fill"></i>');
+$(".ss89").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart90").click(function(){
+if($(".ss90").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '90',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti90').html(result);
+    }
+});
+$(".ss90").html('<i class="bi bi-heart"></i>');
+$(".ss90").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '90',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti90').html(result);  }
+});
+$(".ss90").html('<i class="bi bi-heart-fill"></i>');
+$(".ss90").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart91").click(function(){
+if($(".ss91").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '91',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti91').html(result);
+    }
+});
+$(".ss91").html('<i class="bi bi-heart"></i>');
+$(".ss91").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '91',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti91').html(result);  }
+});
+$(".ss91").html('<i class="bi bi-heart-fill"></i>');
+$(".ss91").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart92").click(function(){
+if($(".ss92").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '92',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti92').html(result);
+    }
+});
+$(".ss92").html('<i class="bi bi-heart"></i>');
+$(".ss92").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '92',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti92').html(result);  }
+});
+$(".ss92").html('<i class="bi bi-heart-fill"></i>');
+$(".ss92").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart93").click(function(){
+if($(".ss93").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '93',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti93').html(result);
+    }
+});
+$(".ss93").html('<i class="bi bi-heart"></i>');
+$(".ss93").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '93',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti93').html(result);  }
+});
+$(".ss93").html('<i class="bi bi-heart-fill"></i>');
+$(".ss93").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart94").click(function(){
+if($(".ss94").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '94',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti94').html(result);
+    }
+});
+$(".ss94").html('<i class="bi bi-heart"></i>');
+$(".ss94").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '94',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti94').html(result);  }
+});
+$(".ss94").html('<i class="bi bi-heart-fill"></i>');
+$(".ss94").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart95").click(function(){
+if($(".ss95").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '95',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti95').html(result);
+    }
+});
+$(".ss95").html('<i class="bi bi-heart"></i>');
+$(".ss95").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '95',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti95').html(result);  }
+});
+$(".ss95").html('<i class="bi bi-heart-fill"></i>');
+$(".ss95").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart96").click(function(){
+if($(".ss96").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '96',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti96').html(result);
+    }
+});
+$(".ss96").html('<i class="bi bi-heart"></i>');
+$(".ss96").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '96',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti96').html(result);  }
+});
+$(".ss96").html('<i class="bi bi-heart-fill"></i>');
+$(".ss96").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart97").click(function(){
+if($(".ss97").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '97',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti97').html(result);
+    }
+});
+$(".ss97").html('<i class="bi bi-heart"></i>');
+$(".ss97").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '97',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti97').html(result);  }
+});
+$(".ss97").html('<i class="bi bi-heart-fill"></i>');
+$(".ss97").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart98").click(function(){
+if($(".ss98").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '98',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti98').html(result);
+    }
+});
+$(".ss98").html('<i class="bi bi-heart"></i>');
+$(".ss98").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '98',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti98').html(result);  }
+});
+$(".ss98").html('<i class="bi bi-heart-fill"></i>');
+$(".ss98").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart99").click(function(){
+if($(".ss99").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '99',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti99').html(result);
+    }
+});
+$(".ss99").html('<i class="bi bi-heart"></i>');
+$(".ss99").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '99',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti99').html(result);  }
+});
+$(".ss99").html('<i class="bi bi-heart-fill"></i>');
+$(".ss99").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart100").click(function(){
+if($(".ss100").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '100',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti100').html(result);
+    }
+});
+$(".ss100").html('<i class="bi bi-heart"></i>');
+$(".ss100").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '100',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti100').html(result);  }
+});
+$(".ss100").html('<i class="bi bi-heart-fill"></i>');
+$(".ss100").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart101").click(function(){
+if($(".ss101").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '101',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti101').html(result);
+    }
+});
+$(".ss101").html('<i class="bi bi-heart"></i>');
+$(".ss101").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '101',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti101').html(result);  }
+});
+$(".ss101").html('<i class="bi bi-heart-fill"></i>');
+$(".ss101").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart102").click(function(){
+if($(".ss102").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '102',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti102').html(result);
+    }
+});
+$(".ss102").html('<i class="bi bi-heart"></i>');
+$(".ss102").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '102',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti102').html(result);  }
+});
+$(".ss102").html('<i class="bi bi-heart-fill"></i>');
+$(".ss102").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart103").click(function(){
+if($(".ss103").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '103',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti103').html(result);
+    }
+});
+$(".ss103").html('<i class="bi bi-heart"></i>');
+$(".ss103").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '103',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti103').html(result);  }
+});
+$(".ss103").html('<i class="bi bi-heart-fill"></i>');
+$(".ss103").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart104").click(function(){
+if($(".ss104").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '104',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti104').html(result);
+    }
+});
+$(".ss104").html('<i class="bi bi-heart"></i>');
+$(".ss104").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '104',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti104').html(result);  }
+});
+$(".ss104").html('<i class="bi bi-heart-fill"></i>');
+$(".ss104").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart105").click(function(){
+if($(".ss105").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '105',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti105').html(result);
+    }
+});
+$(".ss105").html('<i class="bi bi-heart"></i>');
+$(".ss105").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '105',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti105').html(result);  }
+});
+$(".ss105").html('<i class="bi bi-heart-fill"></i>');
+$(".ss105").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart106").click(function(){
+if($(".ss106").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '106',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti106').html(result);
+    }
+});
+$(".ss106").html('<i class="bi bi-heart"></i>');
+$(".ss106").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '106',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti106').html(result);  }
+});
+$(".ss106").html('<i class="bi bi-heart-fill"></i>');
+$(".ss106").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart107").click(function(){
+if($(".ss107").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '107',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti107').html(result);
+    }
+});
+$(".ss107").html('<i class="bi bi-heart"></i>');
+$(".ss107").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '107',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti107').html(result);  }
+});
+$(".ss107").html('<i class="bi bi-heart-fill"></i>');
+$(".ss107").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart108").click(function(){
+if($(".ss108").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '108',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti108').html(result);
+    }
+});
+$(".ss108").html('<i class="bi bi-heart"></i>');
+$(".ss108").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '108',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti108').html(result);  }
+});
+$(".ss108").html('<i class="bi bi-heart-fill"></i>');
+$(".ss108").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart109").click(function(){
+if($(".ss109").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '109',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti109').html(result);
+    }
+});
+$(".ss109").html('<i class="bi bi-heart"></i>');
+$(".ss109").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '109',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti109').html(result);  }
+});
+$(".ss109").html('<i class="bi bi-heart-fill"></i>');
+$(".ss109").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart110").click(function(){
+if($(".ss110").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '110',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti110').html(result);
+    }
+});
+$(".ss110").html('<i class="bi bi-heart"></i>');
+$(".ss110").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '110',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti110').html(result);  }
+});
+$(".ss110").html('<i class="bi bi-heart-fill"></i>');
+$(".ss110").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart111").click(function(){
+if($(".ss111").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '111',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti111').html(result);
+    }
+});
+$(".ss111").html('<i class="bi bi-heart"></i>');
+$(".ss111").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '111',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti111').html(result);  }
+});
+$(".ss111").html('<i class="bi bi-heart-fill"></i>');
+$(".ss111").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart112").click(function(){
+if($(".ss112").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '112',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti112').html(result);
+    }
+});
+$(".ss112").html('<i class="bi bi-heart"></i>');
+$(".ss112").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '112',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti112').html(result);  }
+});
+$(".ss112").html('<i class="bi bi-heart-fill"></i>');
+$(".ss112").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart113").click(function(){
+if($(".ss113").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '113',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti113').html(result);
+    }
+});
+$(".ss113").html('<i class="bi bi-heart"></i>');
+$(".ss113").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '113',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti113').html(result);  }
+});
+$(".ss113").html('<i class="bi bi-heart-fill"></i>');
+$(".ss113").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart114").click(function(){
+if($(".ss114").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '114',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti114').html(result);
+    }
+});
+$(".ss114").html('<i class="bi bi-heart"></i>');
+$(".ss114").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '114',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti114').html(result);  }
+});
+$(".ss114").html('<i class="bi bi-heart-fill"></i>');
+$(".ss114").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart115").click(function(){
+if($(".ss115").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '115',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti115').html(result);
+    }
+});
+$(".ss115").html('<i class="bi bi-heart"></i>');
+$(".ss115").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '115',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti115').html(result);  }
+});
+$(".ss115").html('<i class="bi bi-heart-fill"></i>');
+$(".ss115").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart117").click(function(){
+if($(".ss117").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '117',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti117').html(result);
+    }
+});
+$(".ss117").html('<i class="bi bi-heart"></i>');
+$(".ss117").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '117',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti117').html(result);  }
+});
+$(".ss117").html('<i class="bi bi-heart-fill"></i>');
+$(".ss117").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart118").click(function(){
+if($(".ss118").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '118',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti118').html(result);
+    }
+});
+$(".ss118").html('<i class="bi bi-heart"></i>');
+$(".ss118").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '118',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti118').html(result);  }
+});
+$(".ss118").html('<i class="bi bi-heart-fill"></i>');
+$(".ss118").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart119").click(function(){
+if($(".ss119").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '119',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti119').html(result);
+    }
+});
+$(".ss119").html('<i class="bi bi-heart"></i>');
+$(".ss119").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '119',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti119').html(result);  }
+});
+$(".ss119").html('<i class="bi bi-heart-fill"></i>');
+$(".ss119").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart120").click(function(){
+if($(".ss120").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '120',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti120').html(result);
+    }
+});
+$(".ss120").html('<i class="bi bi-heart"></i>');
+$(".ss120").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '120',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti120').html(result);  }
+});
+$(".ss120").html('<i class="bi bi-heart-fill"></i>');
+$(".ss120").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart121").click(function(){
+if($(".ss121").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '121',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti121').html(result);
+    }
+});
+$(".ss121").html('<i class="bi bi-heart"></i>');
+$(".ss121").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '121',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti121').html(result);  }
+});
+$(".ss121").html('<i class="bi bi-heart-fill"></i>');
+$(".ss121").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart122").click(function(){
+if($(".ss122").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '122',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti122').html(result);
+    }
+});
+$(".ss122").html('<i class="bi bi-heart"></i>');
+$(".ss122").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '122',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti122').html(result);  }
+});
+$(".ss122").html('<i class="bi bi-heart-fill"></i>');
+$(".ss122").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart123").click(function(){
+if($(".ss123").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '123',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti123').html(result);
+    }
+});
+$(".ss123").html('<i class="bi bi-heart"></i>');
+$(".ss123").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '123',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti123').html(result);  }
+});
+$(".ss123").html('<i class="bi bi-heart-fill"></i>');
+$(".ss123").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart124").click(function(){
+if($(".ss124").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '124',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti124').html(result);
+    }
+});
+$(".ss124").html('<i class="bi bi-heart"></i>');
+$(".ss124").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '124',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti124').html(result);  }
+});
+$(".ss124").html('<i class="bi bi-heart-fill"></i>');
+$(".ss124").addClass("liked");
+}
+});
+});
+</script>
+
+
+<script>
+$(document).ready(function(){
+$("#favheart125").click(function(){
+if($(".ss125").hasClass("liked")){ 
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '125',
+  type : 'delete',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti125').html(result);
+    }
+});
+$(".ss125").html('<i class="bi bi-heart"></i>');
+$(".ss125").removeClass("liked");
+}else{
+$.ajax({
+  url: 'https://futuritech.io/like',
+  type: 'POST',
+  data: {
+  _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+  pid : '125',
+  type : 'add',
+  uid : '',
+  },
+  success: function(result) { 
+      $('.conti125').html(result);  }
+});
+$(".ss125").html('<i class="bi bi-heart-fill"></i>');
+$(".ss125").addClass("liked");
+}
+});
+});
+</script>
+
+<style>
+img.goog {
+width: fit-content;
+}
+</style>
+<!-- login/register popup code here  -->
+
+<div class="modal fade shareme Fr_login" id="Log_in" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title" id="exampleModalToggleLabel">Login</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&#x2715;</button>
+</div>
+<div class="modal-body">
+<form>
+  <div class="Form_box">
+    <input type="text" placeholder="Email" id="log_email" required>
+  </div>
+  <div class="Form_box">
+    <input type="password" placeholder="Password" id="log_password" required>
+  </div>
+  <div class="Forgot_passwrd"> <a href="#" data-bs-target="#reset_paswrd" data-bs-toggle="modal" style="float: right;">Forgot Password?</a> </div>
+  <button type="button" class="view_btn" onclick="login()">Login <span style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
+<hr>
+    <button type="button" class="view_btn" onclick="window.location = 'https://accounts.google.com/o/oauth2/auth?client_id=12652312246-qe1fvuvd3pn5irrmsi59ak2cdh7aj10c.apps.googleusercontent.com&amp;redirect_uri=https%3A%2F%2Ffuturitech.io%2Fauthorized%2Fgoogle%2Fcallback&amp;scope=openid+profile+email&amp;response_type=code&amp;state=QkDLISH3KcYhQMyZ84PweQBnDDcIYHngG1kPR7j8'"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="g" class="goog"> Login with google   </button>  
+    
+  <p class="acc_open"> Don't have an account?, <a href="#"  data-bs-target="#register_form" data-bs-toggle="modal">Sign up</a> </p>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function login(){
+      setTimeout(function() {
+  $('.error-invalid').remove();
+}, 2000);
+      $('.error-invalid').remove(); 
+      var email=$('#log_email').val();
+      var pass=$('#log_password').val(); 
+      if(email.trim()==''){   $('#log_email').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Email Field is Mandatory</small>');     return  false; } 
+      if(pass.trim()==''){   $('#log_password').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Password Field is Mandatory</small>');     return  false; } 
+
+      var cpass=$('.spinner-border').css('display','inline-block');
+
+      $.ajax({
+          url: 'https://futuritech.io/login',
+          type: 'POST',
+          data: {
+          _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz", 
+          email : email,
+          password : pass,
+          },
+          success: function(result) {
+              
+              var cpass=$('.spinner-border').css('display','none');
+              if(result=='exist'){
+             location.reload();     
+                 
+              }else{
+                  $('#log_password').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Invalid Login Credentials</small>');    
+              }
+
+          }
+      });
+
+} 
+</script> 
+<div class="modal fade shareme Fr_login" id="register_form" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title " id="exampleModalToggleLabel2">Create Account</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&#x2715;</button>
+</div>
+<div class="modal-body">
+<form>
+  <div class="Form_box">
+    <input type="text" placeholder="Name" id="up_name" required  autocomplete="off">
+  </div>
+  <div class="Form_box">
+    <input type="email" placeholder="Email" id="up_email" required  autocomplete="off">
+  </div>
+  <div class="Form_box">
+    <input type="password" placeholder="Password" id="up_password" required  autocomplete="off">
+  </div>
+  <div class="Form_box">
+    <input type="password" placeholder="Confirm Password" id="up_cpassword" required autocomplete="off">
+  </div>
+  <button type="button" class="view_btn" onclick="signup()">Sign up <span style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
+  <p class="acc_open"> Already have an account?, <a href="#"  data-bs-target="#Log_in" data-bs-toggle="modal">Login</a>
+    <button type="button"  id="succ" style="display: none" data-bs-target="#thankk" data-bs-toggle="modal">dddd</button>
+  </p>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script>
+function signup(){
+      setTimeout(function() {
+  $('.error-invalid').remove();
+}, 2000);
+      $('.error-invalid').remove();
+
+      var name=$('#up_name').val();
+      var email=$('#up_email').val();
+      var pass=$('#up_password').val();
+      var cpass=$('#up_cpassword').val();
+
+      var regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+      if(name.trim()==''){  $('#up_name').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Name Field is Mandatory</small>');      return  false; }
+      if(email.trim()==''){   $('#up_email').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Email Field is Mandatory</small>');     return  false; }
+      if(pass.trim()==''){    $('#up_password').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;"> Password Field is Mandatory</small>');    return  false; }
+      if(cpass.trim()==''){   $('#up_cpassword').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Confirm Password is Mandatory</small>');      return  false; }
+      if(regex.test(email)){   }else{  $('#up_email').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Invalid Email</small>');      return  false;  }
+      if(pass.length < 8){  $('#up_password').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;"> Password Must be greater than 8 words</small>');    return  false;  }
+      if(pass!=cpass){   $('#up_cpassword').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Confirm Password Do not match</small>');  return  false;  }
+
+
+      var cpass=$('.spinner-border').css('display','inline-block');
+
+      $.ajax({
+          url: 'https://futuritech.io/signup',
+          type: 'POST',
+          data: {
+          _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+          name : name,
+          email : email,
+          password : pass,
+          },
+          success: function(result) {
+              
+              var cpass=$('.spinner-border').css('display','none');
+              if(result=='exist'){
+                  $('#up_email').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Email Already Exist</small>');
+              }else{
+                      $('#succ').click();
+              }
+
+          }
+      });
+
+} 
+</script> 
+<!-- forgot password  -->
+<div class="modal fade shareme Fr_login" id="reset_paswrd" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title " id="exampleModalToggleLabel2">Reset Password</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&#x2715;</button>
+</div>
+<div class="modal-body">
+<form>
+  <div class="Form_box">
+    <input type="text" placeholder="Email" id="resetemail" required>
+  </div>
+  <button  type="button"  onclick="resetpass()" class="view_btn">submit <span style="display: none" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>
+  <p class="acc_open"> Already have an account?, <a href="#"  data-bs-target="#Log_in" data-bs-toggle="modal">Login</a>
+    <button type="button"  id="rsucc" style="display: none" data-bs-target="#thankkrr" data-bs-toggle="modal">dddd</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<script>
+function resetpass(){
+      setTimeout(function() {
+  $('.error-invalid').remove();
+}, 2000);
+      $('.error-invalid').remove();
+
+      var email=$('#resetemail').val(); 
+
+      var regex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/; 
+      if(email.trim()==''){   $('#resetemail').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Email Field is Mandatory</small>');     return  false; } 
+      if(regex.test(email)){   }else{  $('#resetemail').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Invalid Email</small>');      return  false;  } 
+
+
+      var cpass=$('.spinner-border').css('display','inline-block');
+
+      $.ajax({
+          url: 'https://futuritech.io/resetpass',
+          type: 'POST',
+          data: {
+          _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz", 
+          email : email, 
+          },
+          success: function(result) { 
+              
+              var cpass=$('.spinner-border').css('display','none');
+              if(result=='sent'){
+                
+                  $('#rsucc').click();
+              }else{
+                      
+                      $('#resetemail').after('<small class="error-invalid" style="color: red; font-size: 11px;  margin-left: 3px;">Email do Not Exist</small>');
+              }
+
+          }
+      });
+
+} 
+</script> 
+
+
+<div class="modal fade shareme Fr_login" id="thankk" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title " id="exampleModalToggleLabel2">Signup Successful</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&#x2715;</button>
+</div>
+<div class="modal-body">
+<p>Mail has been sent on your mail to conform your account</p>
+</div>
+</div>
+</div> 
+</div>
+
+<div class="modal fade shareme Fr_login" id="thankkrr" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h2 class="modal-title " id="exampleModalToggleLabel2">Successful</h2>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&#x2715;</button>
+</div>
+<div class="modal-body">
+<p>Mail has been sent on your mail to Reset your account</p>
+</div>
+</div>
+</div> 
+</div>
+
+
+
+
+
+</body>
+
+<!-- Mirrored from futuritech.io/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 22 Dec 2023 06:50:41 GMT -->
+</html>

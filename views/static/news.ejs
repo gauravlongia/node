@@ -1,0 +1,100 @@
+<% include ./inc/header %>
+
+
+
+<main class="mainnews_temp">  
+  <section class="Hero article_banner">
+    <div class="container-fluid">
+      <div class="Hero_row row justify-content-center">
+        <div class="col-md-7">
+          <div class="Hero_txt">
+            <h1>News</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="ai_news news_main">
+    <div class="slider_wrappr container-fluid">
+      <div class="blog_sectn news_sec row">
+           
+        <div class="col-md-6">
+          <div class="item ">
+            <div class="carousel-item-image"> <a href="/newsblogspage"><img src="storage/app/public/featimages/19869070featimage.webp" class="blog image img-fluid"></a> </div>
+            <div class="article_txt"> <a href="/newsblogspage">
+              <h4>Large Language Models are Revolutionizing Healthcare and Transforming Medicine</h4>
+              </a>
+              <p>By utilizing the power of large language models (LLMs), Google&#039;s Med-PaLM 2 and EPFL&#039;s Meditron are leading the way in a revolutio...</p>
+              <a href="/newsblogspage" class="rread_blog">Read More <span><i class="bi bi-arrow-right"></i></span></a> </div>
+          </div>
+        </div>
+       
+          
+           
+        <div class="col-md-6">
+          <div class="item ">
+            <div class="carousel-item-image"> <a href="/newsblogspage"><img src="storage/app/public/featimages/374688730featimage.webp" class="blog image img-fluid"></a> </div>
+            <div class="article_txt"> <a href="/newsblogspage">
+              <h4>Collaboration in Science Advances: Kevin Yager&#039;s AI-Powered Chatbot</h4>
+              </a>
+              <p>Expert input and teamwork are essential to scientific research, yet obtaining specialised expertise can be difficult. An AI-powere...</p>
+              <a href="/newsblogspage" class="rread_blog">Read More <span><i class="bi bi-arrow-right"></i></span></a> </div>
+          </div>
+        </div>
+       
+          
+           
+        <div class="col-md-6">
+          <div class="item ">
+            <div class="carousel-item-image"> <a href="/newsblogspage"><img src="storage/app/public/featimages/311549203featimage.png" class="blog image img-fluid"></a> </div>
+            <div class="article_txt"> <a href="/newsblogspage">
+              <h4>Unveiling Amazon Q - The Future of AI Productivity</h4>
+              </a>
+              <p>Amazon unveiled &quot;Amazon Q,&quot; a state-of-the-art generative AI assistant, at the AWS Reinvent conference in Las Vegas. This daring s...</p>
+              <a href="/newsblogspage" class="rread_blog">Read More <span><i class="bi bi-arrow-right"></i></span></a> </div>
+          </div>
+        </div>
+       
+          
+           
+        <div class="col-md-6">
+          <div class="item ">
+            <div class="carousel-item-image"> <a href="/newsblogspage"><img src="storage/app/public/featimages/184098229featimage.webp" class="blog image img-fluid"></a> </div>
+            <div class="article_txt"> <a href="/newsblogspage">
+              <h4>Unveiling Insights into Artificial Intelligence&#039;s Brain-like Characteristics</h4>
+              </a>
+              <p>A novel development in artificial intelligence (AI) has been shown lately by researchers from the University of Cambridge, demonst...</p>
+              <a href="/newsblogspage" class="rread_blog">Read More <span><i class="bi bi-arrow-right"></i></span></a> </div>
+          </div>
+        </div>
+       
+          
+          
+          
+            </div>
+    </div> 
+  </section>
+  </main>
+<script> 
+        $(document).ready(function(){
+            var sectionIds = $('a.nav-link');
+            $(document).scroll(function(){
+                sectionIds.each(function(){
+                    var container = $(this).attr('href');
+                    var containerOffset = $(container).offset().top;
+                    var containerHeight = $(container).outerHeight();
+                    var containerBottom = containerOffset + containerHeight;
+                    var scrollPosition = $(document).scrollTop();
+                    if(scrollPosition < containerBottom - 350 && scrollPosition >= containerOffset - 350){
+                        $(this).addClass('active');
+                    } else{
+                        $(this).removeClass('active');
+                    }
+                });
+            });
+        });
+    </script> 
+
+<% include ./inc/footer %>
+
+ 

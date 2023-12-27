@@ -1,0 +1,39 @@
+<% include ./inc/header %>
+
+
+
+
+
+<main class="blogdetails_page">
+  <div class="Blogs_wrapr">
+    <div class="container-fluid">
+      <div class="Blog_D_desc">
+        <div class="Blog_d_ttl">
+          <h1 style="text-align: center;"> Affiliate Disclaimer </h1>
+        </div>
+        
+        <p> <p>Last updated: 08/ 21 /2023</p><p>The Futuritech.io website ("us", "we", or "our") may contain affiliate links and partnerships to various products and services. We may receive a commission for purchases made through these links and partnerships at no additional cost to you. Please note that this does not affect the price of the product or service for you.</p><p>We only recommend products and services that we believe may be valuable to our readers and aligned with the content and purpose of our website. These recommendations are based on our research, experience, and expertise in the field of AI technology.</p><p>It's important to understand that:</p><ol><li>We only promote products or services that we genuinely believe can provide value to our audience.</li><li>The decision to purchase through our affiliate links is entirely optional. You are under no obligation to use our affiliate links to make a purchase.</li><li>Any commissions we receive through affiliate links help support the maintenance and growth of our website and the creation of valuable content for our readers.</li></ol><p>We appreciate your support by using our affiliate links, as it allows us to continue offering high-quality content and resources to the AI community.</p><p>Please do your own research and due diligence before making any purchasing decisions. If you have any questions about a specific product or service, feel free to reach out to us for more information.</p><p>If you have any concerns or questions about our affiliate partnerships and how they work, please don't hesitate to contact us&nbsp;</p><p>Thank you for your support and for being a part of the Futuritech community.</p><p>Sincerely,</p><p>The Futuritech Team</p></p>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+        //   scroll spy code //
+        $(document).ready(function(){
+            var sectionIds = $('a.nav-link');
+            $(document).scroll(function(){
+                sectionIds.each(function(){
+                    var container = $(this).attr('href');
+                    var containerOffset = $(container).offset().top;
+                    var containerHeight = $(container).outerHeight();
+                    var containerBottom = containerOffset + containerHeight;
+                    var scrollPosition = $(document).scrollTop();
+                    if(scrollPosition < containerBottom - 350 && scrollPosition >= containerOffset - 350){
+                        $(this).addClass('active');
+                    } else{
+                        $(this).removeClass('active');
+                    }
+                });
+            });
+        });
+    </script><% include ./inc/footer %>

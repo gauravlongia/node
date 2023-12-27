@@ -1,0 +1,39 @@
+<% include ./inc/header %>
+
+
+
+<main class="blogdetails_page">
+  <div class="Blogs_wrapr">
+    <div class="container-fluid">
+      <div class="Blog_D_desc">
+        <div class="Blog_d_ttl">
+          <h1 style="text-align: center;"> Terms &amp; Use </h1>
+        </div>
+        
+        <p> <p>Last Updated: 08/ 21 /2023</p><p>Please read these Terms of Use ("Terms") carefully before using Futuritech.io (the "Website") operated by Futuritech.io ("us", "we", or "our").</p><p>By accessing or using the Website, you agree to be bound by these Terms. If you disagree with any part of the Terms, you may not access the Website.</p><p><strong>Intellectual Property</strong></p><p>The content and materials available on Futuritech.io, including but not limited to text, graphics, images, logos, and videos, are the property of futuritech.io and are protected by applicable copyright and trademark laws. You may not use, reproduce, or distribute any content from the Website without our prior written consent.</p><p><strong>Disclaimer</strong></p><p>The content on Futuritech.io is provided for informational purposes only. While we strive to provide accurate and up-to-date information, we make no warranties or representations about the accuracy, completeness, or suitability of the content for any purpose. You are solely responsible for any actions you take based on the information provided on the Website.</p><p><strong>User Conduct</strong></p><p>When using the Website, you agree not to:</p><ol><li>Violate any applicable laws or regulations.</li><li>Infringe upon the intellectual property rights of others.</li><li>Transmit any viruses, malware, or harmful code.</li><li>Engage in any conduct that disrupts or interferes with the Website's functionality.</li><li>Harass, threaten, or otherwise violate the rights of other users or individuals.</li></ol><p><strong>Third-Party Links</strong></p><p>Futuritech.io may contain links to third-party websites or services that are not owned or controlled by futuritech.io. We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party sites or services. You further acknowledge and agree that futuritech.io shall not be responsible or liable, directly or indirectly, for any damage or loss caused or alleged to be caused by or in connection with the use of or reliance on any such content, goods, or services available on or through any such websites or services.</p><p><strong>Limitation of Liability</strong></p><p>In no event shall futuritech.io, its affiliates, partners, or contributors be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or in connection with your use of the Website.</p><p><strong>Changes to the Terms</strong></p><p>We reserve the right to modify or replace these Terms at any time without notice. By continuing to use the Website after any revisions become effective, you agree to be bound by the revised Terms.</p><p>&nbsp;</p><p><strong>Contact Us</strong></p><p>If you have any questions about these Terms, please contact us at support@futuritech.io.</p><p>Thank you for using Futuritech.io!</p><p>Sincerely,</p><p>The Futuritech Team</p></p>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+        //   scroll spy code //
+        $(document).ready(function(){
+            var sectionIds = $('a.nav-link');
+            $(document).scroll(function(){
+                sectionIds.each(function(){
+                    var container = $(this).attr('href');
+                    var containerOffset = $(container).offset().top;
+                    var containerHeight = $(container).outerHeight();
+                    var containerBottom = containerOffset + containerHeight;
+                    var scrollPosition = $(document).scrollTop();
+                    if(scrollPosition < containerBottom - 350 && scrollPosition >= containerOffset - 350){
+                        $(this).addClass('active');
+                    } else{
+                        $(this).removeClass('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+<% include ./inc/footer %>

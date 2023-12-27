@@ -1,0 +1,54 @@
+<!-- settings.ejs -->
+ 
+
+<%- include('inc/header') -%> 
+<%- include('inc/leftbar') -%>
+
+
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <% if(message.success) {%>
+          <div class="card-body">
+            <div class="alert alert-success alert-dismissible" role="alert"> <%= message.success %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div> 
+        <% }%>
+       
+         <div class="card-body">
+          <form method="POST" action="/admin/updatehomeabout" class="row g-3"  enctype="multipart/form-data"> 
+              
+         
+
+            <div class="col-md-12">
+                <label class="form-label" for="formValidationName">Heading</label>
+                <input type="text" id="formValidationName" class="form-control"  value="<%= data[0].heading  %>" placeholder="Heading" name="heading" /> 
+                <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
+               </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div>
+
+              <div class="col-md-12">
+               <label class="form-label"  for="description">Description:</label> 
+                <textarea id="description" name="description"  class="form-control"><%= data[0].description  %></textarea><br><br>  
+                <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
+                 </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div>
+
+              <div class="col-md-12">
+                <label class="form-label" for="formValidationName">Image</label>
+                <input type="file" id="formValidationName" class="form-control" value="" placeholder="Image" name="image" />
+                 <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
+                </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div> 
+
+            <div class="col-12">
+              <button type="submit" name="submitButton" class="btn btn-primary">Submit </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr class="my-5"> 
+
+  <%- include('inc/footer') -%>
+ 

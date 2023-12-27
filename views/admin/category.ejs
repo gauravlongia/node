@@ -1,0 +1,60 @@
+<%- include('inc/header') -%> 
+<%- include('inc/leftbar') -%>
+
+<style>
+  img {
+    width: 160px;
+    background: #696cff;
+    padding: 9px;
+  }
+</style>
+<hr class="my-5">
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+    
+
+      <% if(typeof message.success != 'undefined' ) {%>
+        <div class="card-body">
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <%= message.success %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+      <% } %>
+
+      <div class="card-body">
+        <form method="POST" action="<%= urlIs %>" class="row g-3">
+          <% if (locals.data && locals.data.id) { %> <!-- For update mode -->
+            <input type="hidden" name="id" value="<%= locals.data.id %>">
+          <% } %>
+        
+          <div class="col-md-6">
+            <label class="form-label">Sort</label>
+            <input class="form-control" type="text" name="sort"  value="<%=(typeof data!='undefined')? parseInt(data.sort)  :''%> ">
+            <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;">
+              <%= typeof errors!='undefined' && errors.sort ? errors.sort : '' %>
+            </small>
+          </div>
+        
+          <div class="col-md-6">
+            <label class="form-label">Title</label>
+            <input class="form-control" type="text" name="title"  value="<%=(typeof data!='undefined')? data.title:''  %>">
+            <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;">
+              <%= typeof errors!='undefined' && errors.title ? errors.title : '' %>
+            </small>
+          </div>
+        
+          <div class="col-12">
+            <button type="submit" name="submitButton" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+        
+        
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="my-5">
+
+<%- include('inc/footer') -%>

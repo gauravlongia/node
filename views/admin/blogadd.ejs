@@ -1,0 +1,109 @@
+<%- include('inc/header') -%> 
+<%- include('inc/leftbar') -%>
+
+<style>
+  img {
+    width: 160px;
+    background: #696cff;
+    padding: 9px;
+  }
+</style>
+<hr class="my-5">
+<div class="row">
+  <div class="col-12">
+    <div class="card"> 
+      <% if(typeof message.success != 'undefined' ) {%>
+        <div class="card-body">
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <%= message.success %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>
+      <% } %>
+  
+      <div class="card-body">
+        <form method="POST" action="<%= urlIs %>" class="row g-3" enctype="multipart/form-data">
+            <!-- Add or update mode -->
+            <% if (data && data.id) { %>
+              <input type="hidden" name="id" value="<%= data.id %>">
+            <% } %>
+            
+            <div class="col-md-6">
+              <label class="form-label">Category</label>
+              <select class="form-select" name="categoryId">
+                <option value="">Choose Category</option>
+                <% if (categories && categories.length) { %>
+                  <% categories.forEach(cat => { %>
+                    <option value="<%= cat.id %>" <% if (data && data.categoryId === cat.id) { %> selected <% } %>><%= cat.title %></option>
+                  <% }); %>
+                <% } %>
+              </select> 
+            </div>
+          
+            <div class="col-md-6">
+              <label class="form-label">Subcategory</label>
+              <select class="form-select" name="subcategoryId">
+                <option value="">Choose Subcategory</option>
+                <% if (subcategories && subcategories.length) { %>
+                  <% subcategories.forEach(subcat => { %>
+                    <option value="<%= subcat.id %>" <% if (data && data.subcategoryId === subcat.id) { %> selected <% } %>><%= subcat.title %></option>
+                  <% }); %>
+                <% } %>
+              </select> 
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Sort</label>
+              <input class="form-control" type="text" name="sort" <% if (data && data.sortNo !== undefined) { %> value="<%= data.sortNo %>" <% } %>> 
+            </div>
+            
+            <div class="col-md-3">
+              <label class="form-label">Title</label>
+              <input class="form-control" type="text" name="title" <% if (data && data.title !== undefined) { %> value="<%= data.title %>" <% } %>> 
+            </div>
+            
+            <div class="col-md-3">
+              <label class="form-label">redirectlink</label>
+              <input class="form-control" type="text" name="redirectlink" <% if (data && data.redirectlink !== undefined) { %> value="<%= data.redirectlink %>" <% } %>> 
+            </div>
+            
+            <div class="col-md-3">
+              <label class="form-label">Featured Image</label>
+              <input type="hidden" name="oldimage"  <% if (data && data.image !== undefined) { %> value="<%= data.image %>" <% } %>>
+              <input class="form-control" type="file" name="image"> 
+            </div> 
+
+            <div class="col-md-12">
+              <label class="form-label">Description</label>
+              <textarea class="form-control" id="firstcode" name="description" rows="3"><%= (data && data.description) ? data.description : '' %></textarea>
+            </div>
+          
+            <!-- Add other fields here -->
+            <div class="col-md-4">
+              <label class="form-label">authorname</label>
+              <input class="form-control" type="text" name="authorname" <% if (data && data.authorname !== undefined) { %> value="<%= data.authorname %>" <% } %>> 
+            </div>
+            
+            <div class="col-md-4">
+              <label class="form-label">timetorread</label>
+              <input class="form-control" type="text" name="timetorread" <% if (data && data.timetorread !== undefined) { %> value="<%= data.timetorread %>" <% } %>> 
+            </div>
+            
+            <div class="col-md-4">
+              <label class="form-label">authorimage</label>
+              <input type="hidden" name="oldauthorimage"  <% if (data && data.authorimage !== undefined) { %> value="<%= data.authorimage %>" <% } %>>
+              <input class="form-control" type="file" name="authorimage"> 
+            </div> 
+          
+            
+            <div class="col-12">
+              <button type="submit" name="submitButton" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+            
+      </div>
+    </div>
+  </div>
+</div>
+<hr class="my-5">
+
+<%- include('inc/footer') -%>

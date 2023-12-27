@@ -1,0 +1,122 @@
+<% include ./inc/header %>
+
+
+
+
+<main class="mainblog_temp"> 
+  <!-- Banner Section -->
+  <section class="Hero blog_banner">
+    <div class="container-fluid">
+      <div class="Hero_row row justify-content-center">
+        <div class="col-md-7">
+          <div class="Hero_txt">
+            <h1>Blogs</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="Blog_sec ">
+    <div class="container-fluid">
+      <div class="ai_row row blog_row"> 
+                
+           
+        <% blogs.forEach(blog => { %>
+          <div class="ai_col col-lg-3 col-sm-6">
+            <div class="ai_cards blog_card">
+              <div class="card_top">
+                <div class="ai_img_bx"> 
+                  <a href="/blog/<%= blog.title %>"> <img src="/uploads/blogs/<%= blog.image %>" alt="<%= blog.title %>" class="img-fluid"> </a>
+                </div>
+                <div class="blog_date"><%= moment(blog.updated_at).format('Do MMMM, YYYY')  %></div>
+                <div class="box_desc">
+                  <div class="bx_ttl">
+                    <a href="/blog/<%= blog.title %>"> <h2><%= blog.title %></h2></a>
+                  </div>  
+                      <p> 
+                        <p><%-  blog.description ? truncate(extractPlainText(blog.description), 200) : '' %></p>
+                     </p> 
+                </div>
+              </div>
+              <div class="btn_box"> 
+                <a href="<%= blog.link %>" class="CTA2">Subscribe</a>
+                <div class="Share_btn">
+                  <button type="button" class="" data-bs-toggle="modal" data-bs-target="#sharelinks25"><i class="bi bi-share"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% });%>
+        
+        
+
+        <div class="modal fade shareme" id="sharelinks25" tabindex="-1" aria-labelledby="sharelinksLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title " id="sharelinksLabel">Share link</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&#10006;</button>
+                </div>
+                <div class="modal-body">
+                  <div class="modalcontent">
+                    <p>Share this link via</p>
+                    <ul class="icons">
+                                              <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://futuritech.io/top-benefits-of-ai-content-generator"><i class="bi bi-facebook"></i></a> 
+                      <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://futuritech.io/top-benefits-of-ai-content-generator&amp;title=Top%20Benefits%20of%20AI%20Content%20Generator"><i class="bi bi-linkedin"></i></a> 
+                      <a target="_blank" href="https://twitter.com/intent/tweet?text=Top%20Benefits%20of%20AI%20Content%20Generator&amp;url=https://futuritech.io/top-benefits-of-ai-content-generator"><i class="bi bi-twitter"></i></a> 
+                      <a target="_blank" href="https://wa.me/?text=https://futuritech.io/top-benefits-of-ai-content-generator"><i class="bi bi-whatsapp"></i></a> 
+                      <a target="_blank" href="https://t.me/share/url?url=https://futuritech.io/top-benefits-of-ai-content-generator"><i class="bi bi-telegram"></i></a>
+                    </ul>
+                    <p>Or copy link</p>
+                    <div class="copy-text field cocococ25"> <i class="bi bi-link-45deg"></i>
+                      <input type="text" class="text" value="https://futuritech.io/top-benefits-of-ai-content-generator"  readonly/>
+                      <button class="CTA2">Copy</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!-- script for copy code  -->
+            <script>
+                let copyText25 = document.querySelector(".cocococ25"); 
+                copyText25.querySelector("button").addEventListener("click", function () {
+                    let input25 = copyText25.querySelector("input.text");
+                    input25.select();
+                    document.execCommand("copy");
+                    copyText25.classList.add("active");
+                    window.getSelection().removeAllRanges();
+                    setTimeout(function () {
+                        copyText25.classList.remove("active");
+                    }, 2500);
+                });
+                
+                    </script> 
+         
+    </div>
+    </div>
+  </section>
+   </main>
+<script> 
+        $(document).ready(function(){
+            var sectionIds = $('a.nav-link');
+            $(document).scroll(function(){
+                sectionIds.each(function(){
+                    var container = $(this).attr('href');
+                    var containerOffset = $(container).offset().top;
+                    var containerHeight = $(container).outerHeight();
+                    var containerBottom = containerOffset + containerHeight;
+                    var scrollPosition = $(document).scrollTop();
+                    if(scrollPosition < containerBottom - 350 && scrollPosition >= containerOffset - 350){
+                        $(this).addClass('active');
+                    } else{
+                        $(this).removeClass('active');
+                    }
+                });
+            });
+        });
+    </script> 
+    
+  
+    <% include ./inc/footer %>
+   

@@ -1,48 +1,50 @@
-<!-- settings.ejs -->
  
-<%- include('inc/header') -%>
-<%- include('inc/leftbar') -%>
 
+  <%- include('inc/header') -%> 
+  <%- include('inc/leftbar') -%>
 
+  <style>
+    img {
+	width: 160px;
+	background: #696cff;
+	padding: 9px;
+}
+</style>
 <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <% if(message.success ) {%>
-          <div class="card-body">
-            <div class="alert alert-success alert-dismissible" role="alert"> <%= message.success %>
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-          </div> 
-        <% }%>
+  <div class="col-12">
+    <div class="card"> 
+
+      <% if(message.success) {%>
+        <div class="card-body">
+          <div class="alert alert-success alert-dismissible" role="alert"> <%= message.success %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>  
+      <% }%> 
+      <div class="card-body"> 
+          <form method="POST" action="/adm/settings" class="row g-3"  enctype="multipartform-data"/ >   
        
-         <div class="card-body">
-          <form method="POST" action="/admin/settings" class="row g-3"  >  
-            <input type="hidden" name="id" value="<%= data[0].id %>">
-            <div class="col-md-12">
-                <label class="form-label" for="formValidationName">Phone</label>
-                <input type="text" id="formValidationName" class="form-control"  value="<%= data[0].phone  %>" placeholder="Sort No." name="phone" /> 
-                <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
-               </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div>
-
-              <div class="col-md-12">
-                <label class="form-label" for="formValidationName">Email</label>
-                <input type="text" id="formValidationName" class="form-control" value="<%= data[0].email  %>" placeholder="Category Name" name="email" /> 
-                <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
-            </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div>
-
-              <div class="col-md-12">
-                <label class="form-label" for="formValidationName">Location</label>
-                <input type="text" id="formValidationName" class="form-control" value="<%= data[0].address  %>" placeholder="Category Name" name="address" /> <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"> </small>
-            </div> <div class="col-md-4">  </div> <div class="col-md-4">  </div> 
-            <div class="col-12">
-              <button type="submit" name="submitButton" class="btn btn-primary">Submit </button>
-            </div>
-          </form>
+          <div class="col-md-4">
+            <label class="form-label" >Phone</label>
+            <input class="form-control" type="text" value="<%= data[0].phone  %>" name="phone"> 
         </div>
+          <div class="col-md-4">
+            <label class="form-label" >Email</label>
+            <input class="form-control" type="text" value="<%= data[0].email  %>" name="email" > 
+        </div> 
+       <div class="col-md-12">
+         <label class="form-label" >Address </label> 
+         <textarea  class="form-control" name="address" ><%= data[0].address  %></textarea> 
+      </div>
+
+          <div class="col-12">
+            <button type="submit" name="submitButton" class="btn btn-primary">Submit </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  <hr class="my-5"> 
+</div>
+<hr class="my-5">
 
-  <%- include('inc/footer') -%>
- 
+  <%- include('inc/footer') -%> 

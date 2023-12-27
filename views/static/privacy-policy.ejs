@@ -1,0 +1,41 @@
+<% include ./inc/header %>
+
+
+
+
+<main class="blogdetails_page">
+  <div class="Blogs_wrapr">
+    <div class="container-fluid">
+      <div class="Blog_D_desc">
+        <div class="Blog_d_ttl">
+          <h1 style="text-align: center;"> Privacy Policy </h1>
+        </div>
+        
+        <p> <p>Last Updated: 08/ 21 /2023</p><p>At Futuritech.io, we respect and value the privacy of our visitors. This Privacy Policy outlines the types of personal information we collect, how it is used, and the choices you have regarding your data. By using our website, you consent to the terms outlined in this policy.</p><p><strong>Information We Collect</strong></p><p><strong>Personal Information:</strong> We may collect personal information, such as your name and email address, when you subscribe to our newsletter, create an account, or contact us through our website.</p><p><strong>Usage Data:</strong> We automatically collect information about your interactions with our website. This includes your IP address, browser type, device information, pages visited, and referring URLs. We use this data for analytical purposes to improve our content and user experience.</p><p><strong>Cookies and Tracking Technologies:</strong> We use cookies and similar tracking technologies to enhance your browsing experience, analyze usage patterns, and personalize content. You can adjust your browser settings to disable cookies, but this may affect certain features of our website.</p><p><strong>How We Use Your Information</strong></p><p><strong>Communication:</strong> We use the information you provide to respond to your inquiries, send newsletters, and communicate with you about our services.</p><p><strong>Personalization:</strong> We may use your information to tailor content and recommendations based on your preferences and interests.</p><p><strong>Analytics:</strong> We analyze usage data to improve our website's functionality and optimize content for our audience.</p><p><strong>Data Sharing</strong></p><p>We do not sell, trade, or share your personal information with third parties for marketing purposes. However, we may share aggregated, non-personal information with our partners and advertisers to provide insights about our audience.</p><p><strong>Data Security</strong></p><p>We implement industry-standard security measures to protect your information from unauthorized access, alteration, or disclosure. However, no method of online transmission or electronic storage is entirely secure, and we cannot guarantee absolute security.</p><p><strong>Links to Third-Party Sites</strong></p><p>Our website may contain links to third-party websites. Please note that we are not responsible for the privacy practices or content of these sites. We encourage you to read the privacy policies of any linked websites.</p><p><strong>Your Choices</strong></p><p><strong>Opt-Out:</strong> You can unsubscribe from our newsletter at any time by following the "unsubscribe" link provided in our emails.</p><p><strong>Cookies:</strong> You can manage or disable cookies through your browser settings. Note that some features of our website may not function properly if cookies are disabled.</p><p><strong>Children's Privacy</strong></p><p>Our website is not intended for children under the age of 13. We do not knowingly collect personal information from individuals under 13 years old. If you believe we have collected information from a child under 13, please contact us to have the data removed.</p><p><strong>Updates to this Policy</strong></p><p>We may update this Privacy Policy periodically to reflect changes in our practices or for legal reasons. The date of the latest revision will be indicated at the top of the page.</p><p><strong>Contact Us</strong></p><p>If you have any questions or concerns about this Privacy Policy, please contact us at support@futuritech.io</p><p>Thank you for trusting Futuritech.io with your information.</p><p>Sincerely,</p><p>The Futuritech Team</p></p>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+        //   scroll spy code //
+        $(document).ready(function(){
+            var sectionIds = $('a.nav-link');
+            $(document).scroll(function(){
+                sectionIds.each(function(){
+                    var container = $(this).attr('href');
+                    var containerOffset = $(container).offset().top;
+                    var containerHeight = $(container).outerHeight();
+                    var containerBottom = containerOffset + containerHeight;
+                    var scrollPosition = $(document).scrollTop();
+                    if(scrollPosition < containerBottom - 350 && scrollPosition >= containerOffset - 350){
+                        $(this).addClass('active');
+                    } else{
+                        $(this).removeClass('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+
+<% include ./inc/footer %>

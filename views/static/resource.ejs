@@ -1,0 +1,445 @@
+<% include ./inc/header %>
+
+
+
+<main class="listings_temp">
+  <script src="../code.jquery.com/jquery-2.2.4.min.js"></script>
+  <!-- Banner Section -->
+  <section class="Hero listng_banner">
+    <div class="container-fluid">
+      <div class="Hero_row  hero_lstng row justify-content-center">
+        <div class="col-md-12">
+          <div class="Hero_txt">
+            <h1>Resources</h1>
+          </div>
+          <div class="search_catgg">
+            <form>
+              <div class="fltrs_row">
+                <div class="left_srch">
+               <input type="text" placeholder="search..." onkeyup="getrecords(this.value)">
+                  <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.5 21.378C16.7467 21.378 21 17.1247 21 11.878C21 6.63132 16.7467 2.37802 11.5 2.37802C6.25329 2.37802 2 6.63132 2 11.878C2 17.1247 6.25329 21.378 11.5 21.378Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M22 22.378L20 20.378" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg> </div>
+                <div class="rt_btn_bx">
+                  <button type="button" data-bs-toggle="modal" data-bs-target="#filterpopup"> <svg width="18" height="21" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.81846 1.37802H14.8203C15.8205 1.37802 16.6388 2.19633 16.6388 3.19648V5.19679C16.6388 5.92417 16.1842 6.83341 15.7295 7.28802L11.8198 10.7431C11.2743 11.1977 10.9106 12.1069 10.9106 12.8343V16.744C10.9106 17.2896 10.5469 18.0169 10.0923 18.2897L8.81938 19.108C7.63738 19.8354 6.00077 19.0171 6.00077 17.5623V12.7434C6.00077 12.1069 5.63708 11.2886 5.27338 10.834L1.81831 7.1971C1.36369 6.74248 1 5.92417 1 5.37864V3.28741C1 2.19633 1.81831 1.37802 2.81846 1.37802Z" stroke="white" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M7.84628 1.37802L3.36377 8.56094" stroke="white" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>Filters </button>
+                  <div class="slct_boxx "> <svg  class="d-none" width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.5 5.25302H12" stroke="white" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M4.5 5.25302H1.5" stroke="white" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M7.5 7.87802C8.94975 7.87802 10.125 6.70277 10.125 5.25302C10.125 3.80327 8.94975 2.62802 7.5 2.62802C6.05025 2.62802 4.875 3.80327 4.875 5.25302C4.875 6.70277 6.05025 7.87802 7.5 7.87802Z" stroke="white" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M16.5 13.503H13.5" stroke="white" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M6 13.503H1.5" stroke="white" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10.5 16.128C11.9497 16.128 13.125 14.9528 13.125 13.503C13.125 12.0533 11.9497 10.878 10.5 10.878C9.05025 10.878 7.875 12.0533 7.875 13.503C7.875 14.9528 9.05025 16.128 10.5 16.128Z" stroke="white" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <select name="sources" id="sortby" class="custom-select custom-select-trigger sources b-select" placeholder="Sort By">
+
+                      <option  data-sort="length:desc" value="word">New</option>
+                      <option data-sort="price:desc" value="hashtag">Popular</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    function getrecords(name){
+
+                $.ajax({
+                    url: 'https://futuritech.io/resourcesajax',
+                    type: 'POST',
+                    data: {
+                    _token: "FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz",
+                    name : name },
+                    success: function(result) {
+
+                            $('.yahayaha').html('');
+                            $('.yahayaha').html(result.html);
+
+                    }
+                });
+            
+    }
+  </script>
+  <div class="tab_btns">
+    <div class="container-fluid">
+      <button onclick="window.location.href='/plugins'"  type="button" class="CTA2">Plugins</button>
+      <button onclick="window.location.href='/resource'" type="button" class="CTA2 active">Ai tools</button>
+      <div class="list_grid_vw">
+        <button type="button"  class="btn-list"><span><i class="bi bi-list-ul"></i> </span>List</button>
+        <button type="button"  class="btn-grid"><span><i class="bi bi-grid-3x3-gap-fill"></i></span>Grid</button>
+      </div>
+    </div>
+  </div>
+  <div class="All_listngs_wrap">
+
+    
+    <section class="ai_tols list_tools">
+      <div class="container-fluid grid-container">
+        <div class="ai_row row yahayaha boxes" >
+
+              
+       <div class="ai_col col-lg-4 col-sm-6" data-length="114" data-price="0">
+        <div class="ai_cards">
+          <div class="card_top">
+          <div class="ai_img_bx">
+              <div class="price-c_x"><span>$</span>pay/GB used</div>             <div class="likelike">
+                     <span   data-bs-toggle="modal" data-bs-target="#Log_in" class="favheart ss114"><i class="bi bi-heart" ></i> </span>
+                            <span class="like_Countr conti114">0</span>
+            </div>
+            <img  style="cursor: pointer;"   onclick="window.location.href='/pixop'" src="storage/app/public/featimages/655175392featimage.png" alt="" class="img-fluid">
+          </div>
+          <div class="catg_bar">
+
+                        <a href="related/1.html">    <div class="badge_label">
+
+            Video Creation
+
+
+          </div></a>
+           
+            <div class="rating_star">
+                <div class="Stars">
+                                                             <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                    </div>
+                <span class="ratng_numbr">(0)</span>
+            </div>
+          </div>
+          <div class="box_desc">
+            <div class="bx_ttl">
+              <h2 style="cursor: pointer;" onclick="window.location.href='/pixop'">Pixop</h2>
+              <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Group 19">
+                <path id="Vector" d="M15.9133 6.1821V3.96534C15.9133 3.46711 15.7153 2.98928 15.363 2.63697C15.0107 2.28466 14.5329 2.08674 14.0347 2.08674H11.8649L10.3244 0.546284C9.97244 0.196393 9.4963 0 9 0C8.5037 0 8.02756 0.196393 7.67558 0.546284L6.1821 2.08674H3.96534C3.46711 2.08674 2.98928 2.28466 2.63697 2.63697C2.28466 2.98928 2.08674 3.46711 2.08674 3.96534V6.1821L0.546284 7.67558C0.196393 8.02756 0 8.5037 0 9C0 9.4963 0.196393 9.97244 0.546284 10.3244L2.08674 11.8649V14.0347C2.08674 14.5329 2.28466 15.0107 2.63697 15.363C2.98928 15.7153 3.46711 15.9133 3.96534 15.9133H6.1821L7.67558 17.4537C8.02756 17.8036 8.5037 18 9 18C9.4963 18 9.97244 17.8036 10.3244 17.4537L11.8649 15.9133H14.0347C14.5329 15.9133 15.0107 15.7153 15.363 15.363C15.7153 15.0107 15.9133 14.5329 15.9133 14.0347V11.8649L17.4537 10.3244C17.8036 9.97244 18 9.4963 18 9C18 8.5037 17.8036 8.02756 17.4537 7.67558L15.9133 6.1821Z" fill="#2196F3"/>
+                <path id="Vector_2" d="M8.25924 11.4536C8.12826 11.4543 7.99842 11.4297 7.87717 11.3812C7.75591 11.3327 7.64562 11.2612 7.55263 11.1708L6.01998 9.70792C5.83258 9.52428 5.72729 9.27521 5.72729 9.0155C5.72729 8.7558 5.83258 8.50673 6.01998 8.32309C6.20739 8.13945 6.46156 8.03628 6.72659 8.03628C6.99162 8.03628 7.2458 8.13945 7.4332 8.32309L8.21943 9.10327L10.4985 6.86024C10.6859 6.66626 10.9443 6.55317 11.2168 6.54585C11.4893 6.53853 11.7536 6.63759 11.9515 6.82123C12.1495 7.00487 12.2649 7.25805 12.2724 7.52507C12.2798 7.79209 12.1787 8.05108 11.9913 8.24507L9.00566 11.1708C8.90799 11.266 8.79122 11.3402 8.66274 11.3889C8.53425 11.4376 8.39686 11.4596 8.25924 11.4536Z" fill="white"/>
+                </g>
+                </svg>
+                </span>
+            </div>
+            <p>Pixop is a ground-breaking cloud-based, AI video upscaling tool made to improve video quality. It is an affordable and simple method for improving video quality.... </p>
+          </div>
+          </div>
+          <div class="btn_box">
+            <a href="https://www.pixop.com/" target="_blank" rel="nofollow" class="CTA"><span><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="ARROW 48"><path id="Vector" d="M15.3972 8.61454C15.1962 8.61454 15.0035 8.69437 14.8614 8.83647C14.7193 8.97857 14.6395 9.17131 14.6395 9.37227V12.4225C14.6388 13.0116 14.4045 13.5764 13.9879 13.993C13.5713 14.4096 13.0065 14.6439 12.4174 14.6445H3.73754C3.14841 14.6439 2.58361 14.4096 2.16704 13.993C1.75047 13.5764 1.51614 13.0116 1.51547 12.4225V3.7426C1.51614 3.15348 1.75047 2.58868 2.16704 2.17211C2.58361 1.75553 3.14841 1.52121 3.73754 1.52054H6.78774C6.98871 1.52054 7.18144 1.44071 7.32354 1.2986C7.46565 1.1565 7.54548 0.963767 7.54548 0.762803C7.54548 0.561839 7.46565 0.369105 7.32354 0.227002C7.18144 0.0848987 6.98871 0.00506592 6.78774 0.00506592H3.73754C2.74664 0.00623571 1.79666 0.400387 1.09599 1.10106C0.395321 1.80173 0.00116979 2.75171 0 3.7426V12.4225C0.00116979 13.4134 0.395321 14.3634 1.09599 15.064C1.79666 15.7647 2.74664 16.1588 3.73754 16.16H12.4174C13.4083 16.1588 14.3583 15.7647 15.059 15.064C15.7596 14.3634 16.1538 13.4134 16.155 12.4225V9.37227C16.155 9.17131 16.0751 8.97857 15.933 8.83647C15.7909 8.69437 15.5982 8.61454 15.3972 8.61454Z" fill="#151443"></path><path id="Vector_2" d="M15.3812 6.40212e-08H10.6706C10.4721 -3.79872e-05 10.2816 0.0777546 10.1399 0.216664C9.99825 0.355574 9.91671 0.544517 9.91282 0.742898C9.90493 1.16818 10.2626 1.51547 10.6876 1.51547H13.5711L7.53637 7.55211C7.39428 7.69421 7.31445 7.88694 7.31445 8.08789C7.31445 8.28885 7.39428 8.48158 7.53637 8.62368C7.67847 8.76577 7.8712 8.8456 8.07215 8.8456C8.27311 8.8456 8.46584 8.76577 8.60794 8.62368L14.6446 2.58893V5.48286C14.6446 5.68382 14.7244 5.87656 14.8665 6.01866C15.0086 6.16076 15.2013 6.2406 15.4023 6.2406C15.6033 6.2406 15.796 6.16076 15.9381 6.01866C16.0802 5.87656 16.16 5.68382 16.16 5.48286V0.778575C16.16 0.676304 16.1399 0.575036 16.1008 0.480554C16.0616 0.386073 16.0042 0.300229 15.9319 0.227928C15.8596 0.155626 15.7737 0.0982834 15.6792 0.0591749C15.5847 0.0200664 15.4834 -4.14082e-05 15.3812 6.40212e-08Z" fill="#151443"></path></g></svg> </span>visit site</a>             
+            
+          </div>
+        </div>
+      </div>
+                      
+       <div class="ai_col col-lg-4 col-sm-6" data-length="95" data-price="2">
+        <div class="ai_cards">
+          <div class="card_top">
+          <div class="ai_img_bx">
+              <div class="price-c_x"><span>$</span>9.99/mo</div>             <div class="likelike">
+                     <span   data-bs-toggle="modal" data-bs-target="#Log_in" class="favheart ss95"><i class="bi bi-heart" ></i> </span>
+                            <span class="like_Countr conti95">2</span>
+            </div>
+            <img  style="cursor: pointer;"   onclick="window.location.href='/pixop'" src="storage/app/public/featimages/384613840featimage.webp" alt="" class="img-fluid">
+          </div>
+          <div class="catg_bar">
+
+            
+            <div class="rating_star">
+                <div class="Stars">
+                                                             <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                    </div>
+                <span class="ratng_numbr">(0)</span>
+            </div>
+          </div>
+          <div class="box_desc">
+            <div class="bx_ttl">
+              <h2 style="cursor: pointer;" onclick="window.location.href='/pixop'">Flexclip</h2>
+              <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Group 19">
+                <path id="Vector" d="M15.9133 6.1821V3.96534C15.9133 3.46711 15.7153 2.98928 15.363 2.63697C15.0107 2.28466 14.5329 2.08674 14.0347 2.08674H11.8649L10.3244 0.546284C9.97244 0.196393 9.4963 0 9 0C8.5037 0 8.02756 0.196393 7.67558 0.546284L6.1821 2.08674H3.96534C3.46711 2.08674 2.98928 2.28466 2.63697 2.63697C2.28466 2.98928 2.08674 3.46711 2.08674 3.96534V6.1821L0.546284 7.67558C0.196393 8.02756 0 8.5037 0 9C0 9.4963 0.196393 9.97244 0.546284 10.3244L2.08674 11.8649V14.0347C2.08674 14.5329 2.28466 15.0107 2.63697 15.363C2.98928 15.7153 3.46711 15.9133 3.96534 15.9133H6.1821L7.67558 17.4537C8.02756 17.8036 8.5037 18 9 18C9.4963 18 9.97244 17.8036 10.3244 17.4537L11.8649 15.9133H14.0347C14.5329 15.9133 15.0107 15.7153 15.363 15.363C15.7153 15.0107 15.9133 14.5329 15.9133 14.0347V11.8649L17.4537 10.3244C17.8036 9.97244 18 9.4963 18 9C18 8.5037 17.8036 8.02756 17.4537 7.67558L15.9133 6.1821Z" fill="#2196F3"/>
+                <path id="Vector_2" d="M8.25924 11.4536C8.12826 11.4543 7.99842 11.4297 7.87717 11.3812C7.75591 11.3327 7.64562 11.2612 7.55263 11.1708L6.01998 9.70792C5.83258 9.52428 5.72729 9.27521 5.72729 9.0155C5.72729 8.7558 5.83258 8.50673 6.01998 8.32309C6.20739 8.13945 6.46156 8.03628 6.72659 8.03628C6.99162 8.03628 7.2458 8.13945 7.4332 8.32309L8.21943 9.10327L10.4985 6.86024C10.6859 6.66626 10.9443 6.55317 11.2168 6.54585C11.4893 6.53853 11.7536 6.63759 11.9515 6.82123C12.1495 7.00487 12.2649 7.25805 12.2724 7.52507C12.2798 7.79209 12.1787 8.05108 11.9913 8.24507L9.00566 11.1708C8.90799 11.266 8.79122 11.3402 8.66274 11.3889C8.53425 11.4376 8.39686 11.4596 8.25924 11.4536Z" fill="white"/>
+                </g>
+                </svg>
+                </span>
+            </div>
+            <p>Unleash your creativity with FlexClip, a state-of-the-art video creation and editing platform designed for everyone. From budding content creators to establishe.... </p>
+          </div>
+          </div>
+          <div class="btn_box">
+            <a href="https://www.flexclip.com/" target="_blank"  rel="nofollow" class="CTA"><span><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="ARROW 48"><path id="Vector" d="M15.3972 8.61454C15.1962 8.61454 15.0035 8.69437 14.8614 8.83647C14.7193 8.97857 14.6395 9.17131 14.6395 9.37227V12.4225C14.6388 13.0116 14.4045 13.5764 13.9879 13.993C13.5713 14.4096 13.0065 14.6439 12.4174 14.6445H3.73754C3.14841 14.6439 2.58361 14.4096 2.16704 13.993C1.75047 13.5764 1.51614 13.0116 1.51547 12.4225V3.7426C1.51614 3.15348 1.75047 2.58868 2.16704 2.17211C2.58361 1.75553 3.14841 1.52121 3.73754 1.52054H6.78774C6.98871 1.52054 7.18144 1.44071 7.32354 1.2986C7.46565 1.1565 7.54548 0.963767 7.54548 0.762803C7.54548 0.561839 7.46565 0.369105 7.32354 0.227002C7.18144 0.0848987 6.98871 0.00506592 6.78774 0.00506592H3.73754C2.74664 0.00623571 1.79666 0.400387 1.09599 1.10106C0.395321 1.80173 0.00116979 2.75171 0 3.7426V12.4225C0.00116979 13.4134 0.395321 14.3634 1.09599 15.064C1.79666 15.7647 2.74664 16.1588 3.73754 16.16H12.4174C13.4083 16.1588 14.3583 15.7647 15.059 15.064C15.7596 14.3634 16.1538 13.4134 16.155 12.4225V9.37227C16.155 9.17131 16.0751 8.97857 15.933 8.83647C15.7909 8.69437 15.5982 8.61454 15.3972 8.61454Z" fill="#151443"></path><path id="Vector_2" d="M15.3812 6.40212e-08H10.6706C10.4721 -3.79872e-05 10.2816 0.0777546 10.1399 0.216664C9.99825 0.355574 9.91671 0.544517 9.91282 0.742898C9.90493 1.16818 10.2626 1.51547 10.6876 1.51547H13.5711L7.53637 7.55211C7.39428 7.69421 7.31445 7.88694 7.31445 8.08789C7.31445 8.28885 7.39428 8.48158 7.53637 8.62368C7.67847 8.76577 7.8712 8.8456 8.07215 8.8456C8.27311 8.8456 8.46584 8.76577 8.60794 8.62368L14.6446 2.58893V5.48286C14.6446 5.68382 14.7244 5.87656 14.8665 6.01866C15.0086 6.16076 15.2013 6.2406 15.4023 6.2406C15.6033 6.2406 15.796 6.16076 15.9381 6.01866C16.0802 5.87656 16.16 5.68382 16.16 5.48286V0.778575C16.16 0.676304 16.1399 0.575036 16.1008 0.480554C16.0616 0.386073 16.0042 0.300229 15.9319 0.227928C15.8596 0.155626 15.7737 0.0982834 15.6792 0.0591749C15.5847 0.0200664 15.4834 -4.14082e-05 15.3812 6.40212e-08Z" fill="#151443"></path></g></svg> </span>visit site</a>             
+            
+          </div>
+        </div>
+      </div>
+                      
+       <div class="ai_col col-lg-4 col-sm-6" data-length="94" data-price="0">
+        <div class="ai_cards">
+          <div class="card_top">
+          <div class="ai_img_bx">
+              <div class="price-c_x"><span>$</span>15/mo</div>             <div class="likelike">
+                     <span   data-bs-toggle="modal" data-bs-target="#Log_in" class="favheart ss94"><i class="bi bi-heart" ></i> </span>
+                            <span class="like_Countr conti94">0</span>
+            </div>
+            <img  style="cursor: pointer;"   onclick="window.location.href='/pixop'" src="storage/app/public/featimages/1944057776featimage.webp" alt="" class="img-fluid">
+          </div>
+          <div class="catg_bar">
+
+            
+            <div class="rating_star">
+                <div class="Stars">
+                                                             <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                         <i class="bi bi-star"> </i> 
+
+                                    </div>
+                <span class="ratng_numbr">(0)</span>
+            </div>
+          </div>
+          <div class="box_desc">
+            <div class="bx_ttl">
+              <h2 style="cursor: pointer;" onclick="window.location.href='/pixop'">Invideo</h2>
+              <span><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g id="Group 19">
+                <path id="Vector" d="M15.9133 6.1821V3.96534C15.9133 3.46711 15.7153 2.98928 15.363 2.63697C15.0107 2.28466 14.5329 2.08674 14.0347 2.08674H11.8649L10.3244 0.546284C9.97244 0.196393 9.4963 0 9 0C8.5037 0 8.02756 0.196393 7.67558 0.546284L6.1821 2.08674H3.96534C3.46711 2.08674 2.98928 2.28466 2.63697 2.63697C2.28466 2.98928 2.08674 3.46711 2.08674 3.96534V6.1821L0.546284 7.67558C0.196393 8.02756 0 8.5037 0 9C0 9.4963 0.196393 9.97244 0.546284 10.3244L2.08674 11.8649V14.0347C2.08674 14.5329 2.28466 15.0107 2.63697 15.363C2.98928 15.7153 3.46711 15.9133 3.96534 15.9133H6.1821L7.67558 17.4537C8.02756 17.8036 8.5037 18 9 18C9.4963 18 9.97244 17.8036 10.3244 17.4537L11.8649 15.9133H14.0347C14.5329 15.9133 15.0107 15.7153 15.363 15.363C15.7153 15.0107 15.9133 14.5329 15.9133 14.0347V11.8649L17.4537 10.3244C17.8036 9.97244 18 9.4963 18 9C18 8.5037 17.8036 8.02756 17.4537 7.67558L15.9133 6.1821Z" fill="#2196F3"/>
+                <path id="Vector_2" d="M8.25924 11.4536C8.12826 11.4543 7.99842 11.4297 7.87717 11.3812C7.75591 11.3327 7.64562 11.2612 7.55263 11.1708L6.01998 9.70792C5.83258 9.52428 5.72729 9.27521 5.72729 9.0155C5.72729 8.7558 5.83258 8.50673 6.01998 8.32309C6.20739 8.13945 6.46156 8.03628 6.72659 8.03628C6.99162 8.03628 7.2458 8.13945 7.4332 8.32309L8.21943 9.10327L10.4985 6.86024C10.6859 6.66626 10.9443 6.55317 11.2168 6.54585C11.4893 6.53853 11.7536 6.63759 11.9515 6.82123C12.1495 7.00487 12.2649 7.25805 12.2724 7.52507C12.2798 7.79209 12.1787 8.05108 11.9913 8.24507L9.00566 11.1708C8.90799 11.266 8.79122 11.3402 8.66274 11.3889C8.53425 11.4376 8.39686 11.4596 8.25924 11.4536Z" fill="white"/>
+                </g>
+                </svg>
+                </span>
+            </div>
+            <p>Introducing InVideo - a groundbreaking solution for all your video creation needs. Whether you&#039;re a beginner or an expert, InVideo makes it incredibly simple to.... </p>
+          </div>
+          </div>
+          <div class="btn_box">
+            <a href="https://invideo.io/" rel="nofollow noreferrer" target="_blank" class="CTA"><span><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="ARROW 48"><path id="Vector" d="M15.3972 8.61454C15.1962 8.61454 15.0035 8.69437 14.8614 8.83647C14.7193 8.97857 14.6395 9.17131 14.6395 9.37227V12.4225C14.6388 13.0116 14.4045 13.5764 13.9879 13.993C13.5713 14.4096 13.0065 14.6439 12.4174 14.6445H3.73754C3.14841 14.6439 2.58361 14.4096 2.16704 13.993C1.75047 13.5764 1.51614 13.0116 1.51547 12.4225V3.7426C1.51614 3.15348 1.75047 2.58868 2.16704 2.17211C2.58361 1.75553 3.14841 1.52121 3.73754 1.52054H6.78774C6.98871 1.52054 7.18144 1.44071 7.32354 1.2986C7.46565 1.1565 7.54548 0.963767 7.54548 0.762803C7.54548 0.561839 7.46565 0.369105 7.32354 0.227002C7.18144 0.0848987 6.98871 0.00506592 6.78774 0.00506592H3.73754C2.74664 0.00623571 1.79666 0.400387 1.09599 1.10106C0.395321 1.80173 0.00116979 2.75171 0 3.7426V12.4225C0.00116979 13.4134 0.395321 14.3634 1.09599 15.064C1.79666 15.7647 2.74664 16.1588 3.73754 16.16H12.4174C13.4083 16.1588 14.3583 15.7647 15.059 15.064C15.7596 14.3634 16.1538 13.4134 16.155 12.4225V9.37227C16.155 9.17131 16.0751 8.97857 15.933 8.83647C15.7909 8.69437 15.5982 8.61454 15.3972 8.61454Z" fill="#151443"></path><path id="Vector_2" d="M15.3812 6.40212e-08H10.6706C10.4721 -3.79872e-05 10.2816 0.0777546 10.1399 0.216664C9.99825 0.355574 9.91671 0.544517 9.91282 0.742898C9.90493 1.16818 10.2626 1.51547 10.6876 1.51547H13.5711L7.53637 7.55211C7.39428 7.69421 7.31445 7.88694 7.31445 8.08789C7.31445 8.28885 7.39428 8.48158 7.53637 8.62368C7.67847 8.76577 7.8712 8.8456 8.07215 8.8456C8.27311 8.8456 8.46584 8.76577 8.60794 8.62368L14.6446 2.58893V5.48286C14.6446 5.68382 14.7244 5.87656 14.8665 6.01866C15.0086 6.16076 15.2013 6.2406 15.4023 6.2406C15.6033 6.2406 15.796 6.16076 15.9381 6.01866C16.0802 5.87656 16.16 5.68382 16.16 5.48286V0.778575C16.16 0.676304 16.1399 0.575036 16.1008 0.480554C16.0616 0.386073 16.0042 0.300229 15.9319 0.227928C15.8596 0.155626 15.7737 0.0982834 15.6792 0.0591749C15.5847 0.0200664 15.4834 -4.14082e-05 15.3812 6.40212e-08Z" fill="#151443"></path></g></svg> </span>visit site</a>             
+            
+          </div>
+        </div>
+      </div> 
+                         
+     
+
+
+        </div>
+      </div>
+    </section>
+      </div>
+</main>
+
+<!-- share popup code  -->
+<!-- Modal -->
+<div class="modal fade shareme" id="sharelinks" tabindex="-1" aria-labelledby="sharelinksLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title " id="sharelinksLabel">Share link</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&#10006;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modalcontent">
+          <p>Share this link via</p>
+          <ul class="icons">
+            <a href="./static/index.html#"><i class="bi bi-linkedin"></i></a> <a href="./static/index.html#"><i class="bi bi-twitter"></i></a> <a href="./static/index.html#"><i class="bi bi-instagram"></i></a> <a href="./static/index.html#"><i class="bi bi-telegram"></i></a>
+          </ul>
+          <p>Or copy link</p>
+          <div class="copy-text field"> <i class="bi bi-link-45deg"></i>
+            <input type="text" class="text" value="example.co.za" />
+            <button class="CTA2">Copy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form action="https://futuritech.io/resource" method="post"> <input type="hidden" name="_token" value="FAvY0raWZ4bnc5jG8QNg2LeVgHpslwnWFLx1l7Kz">    <div class="modal fade shareme filterpopup" id="filterpopup" tabindex="-1" aria-labelledby="filterpopupLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title " id="filterpopupLabel">select filters to apply</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">&#10006;</button>
+          </div>
+          <div class="modal-body">
+            <div class="modalcontent">
+              <div class="filters_box">
+                <h4>pricing</h4>
+                                <ul>
+                                      <li>
+                    <div class="Chkmeboxes">
+                      <input type="checkbox"   id="box-2"  name="filterprice[]" value="2">
+                      <label for="box-2">Free</label>
+                    </div>
+                  </li>
+                                    <li>
+                    <div class="Chkmeboxes">
+                      <input type="checkbox"   id="box-3"  name="filterprice[]" value="3">
+                      <label for="box-3">Premium</label>
+                    </div>
+                  </li>
+                                    <li>
+                    <div class="Chkmeboxes">
+                      <input type="checkbox"   id="box-4"  name="filterprice[]" value="4">
+                      <label for="box-4">Free trial</label>
+                    </div>
+                  </li>
+                                    <li>
+                    <div class="Chkmeboxes">
+                      <input type="checkbox"   id="box-5"  name="filterprice[]" value="5">
+                      <label for="box-5">Paid</label>
+                    </div>
+                  </li>
+                                    <li>
+                    <div class="Chkmeboxes">
+                      <input type="checkbox"   id="box-6"  name="filterprice[]" value="6">
+                      <label for="box-6">Contact for pricing</label>
+                    </div>
+                  </li>
+                                    <li>
+                    <div class="Chkmeboxes">
+                      <input type="checkbox"   id="box-7"  name="filterprice[]" value="7">
+                      <label for="box-7">Deals</label>
+                    </div>
+                  </li>
+                  
+                </ul>
+                <h4>features</h4>
+                            <ul>
+                              <li>
+                <div class="Chkmeboxes">
+                  <input type="checkbox"    id="box-8"  name="filterfeature[]" value="8">
+                  <label for="box-8">Waitlist</label>
+                </div>
+              </li>
+                            <li>
+                <div class="Chkmeboxes">
+                  <input type="checkbox"    id="box-9"  name="filterfeature[]" value="9">
+                  <label for="box-9">Open Source</label>
+                </div>
+              </li>
+                            <li>
+                <div class="Chkmeboxes">
+                  <input type="checkbox"    id="box-10"  name="filterfeature[]" value="10">
+                  <label for="box-10">Mobile App</label>
+                </div>
+              </li>
+                            <li>
+                <div class="Chkmeboxes">
+                  <input type="checkbox"    id="box-11"  name="filterfeature[]" value="11">
+                  <label for="box-11">Discord Community</label>
+                </div>
+              </li>
+                            <li>
+                <div class="Chkmeboxes">
+                  <input type="checkbox"    id="box-12"  name="filterfeature[]" value="12">
+                  <label for="box-12">Api</label>
+                </div>
+              </li>
+                            <li>
+                <div class="Chkmeboxes">
+                  <input type="checkbox"    id="box-13"  name="filterfeature[]" value="13">
+                  <label for="box-13">No Signup Required</label>
+                </div>
+              </li>
+                            <li>
+                <div class="Chkmeboxes">
+                  <input type="checkbox"    id="box-14"  name="filterfeature[]" value="14">
+                  <label for="box-14">Browser Extention</label>
+                </div>
+              </li>
+              
+            </ul>
+              </div>
+              <div class="filters_btns">
+                <button type="button" class="CTA2"  onclick="window.location.href='/plugins'"  >clear</button>
+                <button type="submit" class="CTA2">apply filters</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </form>
+<script>
+        $(document).ready(function(){
+            var sectionIds = $('a.nav-link');
+            $(document).scroll(function(){
+                sectionIds.each(function(){
+                    var container = $(this).attr('href');
+                    var containerOffset = $(container).offset().top;
+                    var containerHeight = $(container).outerHeight();
+                    var containerBottom = containerOffset + containerHeight;
+                    var scrollPosition = $(document).scrollTop();
+                    if(scrollPosition < containerBottom - 350 && scrollPosition >= containerOffset - 350){
+                        $(this).addClass('active');
+                    } else{
+                        $(this).removeClass('active');
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+      (function($) {
+    "use strict";
+
+    $.fn.numericFlexboxSorting = function(options) {
+      const settings = $.extend({
+        elToSort: ".boxes div"
+      }, options);
+
+      const $select = this;
+      const ascOrder = (a, b) => a - b;
+      const descOrder = (a, b) => b - a;
+
+      $select.on("change", () => {
+        const selectedOption = $select.find("option:selected").attr("data-sort");
+        sortColumns(settings.elToSort, selectedOption);
+      });
+
+      function sortColumns(el, opt) {
+        const attr = "data-" + opt.split(":")[0];
+        const sortMethod = (opt.includes("asc")) ? ascOrder : descOrder;
+        const sign = (opt.includes("asc")) ? "" : "-";
+
+        const sortArray = $(el).map((i, el) => $(el).attr(attr)).sort(sortMethod);
+
+        for (let i = 0; i < sortArray.length; i++) {
+          $(el).filter(`[${attr}="${sortArray[i]}"]`).css("order", sign + sortArray[i]);
+        }
+      }
+
+      return $select;
+    };
+  })(jQuery);
+
+  // call the plugin
+  $(".b-select").numericFlexboxSorting();
+  </script>
+
+
+<% include ./inc/footer %>
+ 

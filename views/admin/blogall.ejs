@@ -1,0 +1,76 @@
+<%- include('inc/header') -%>
+<%- include('inc/leftbar') -%>
+
+<hr class="my-5">
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+           <!-- Alert for success message -->  
+           
+
+          
+      <% if(message.success) {%>
+        <div class="card-body">
+          <div class="alert alert-success alert-dismissible" role="alert"> <%= message.success %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        </div>  
+      <% }%> 
+       
+        <div class="card-datatable table-responsive">
+          <table id="example" class="table table-striped" style="width:100%">
+            <thead>
+              <tr> 
+                <th>Sort No.</th>
+                <th>Blog Title</th>
+                <th>Blog Featured</th>
+                <th>Category</th>
+                <th>Sub Category</th>
+                <th>Created Date</th>
+                <th>Updated Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% if (data && data.length > 0) { %>
+              <% data.forEach(function(each, index) { %>
+                <tr> 
+                  <td><%= each.sortNo || '' %></td>  
+                  <td><%= each.title || '' %></td>
+                  <td>
+                    <% if (each.image) { %>
+                      <img src="/uploads/blogs/<%= each.image %>" style="width: 100px">
+                    <% } else { %>
+                      <!-- Provide a placeholder or default image if each.image is empty or undefined -->
+                       --
+                    <% } %>
+                  </td>
+                  
+                  <td><%= each.categoryTitle || '' %></td>
+                  <td><%= each.subcategoryTitle || '' %></td>
+                  <td><%= (each.created_at) ? new Date(each.created_at).toLocaleString() : '' %></td>
+                  <td><%= (each.updated_at) ? new Date(each.updated_at).toLocaleString() : '' %></td>
+                  
+                  <td>
+                    <a href="/adm/blog/<%= each.id || '' %>">
+                      <button type="button" class="btn btn-warning">Edit</button>
+                    </a>
+                  </td>
+                  <td>
+                    <a href="/adm/blog/<%= each.id || '' %>" onclick="return confirm('Are you sure?')">
+                      <button type="button" class="btn btn-danger">Delete</button>
+                    </a>
+                  </td>
+                </tr>
+              <% }); %>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+ 
+    </div>
+  </div>
+</div>
+
+<%- include('inc/footer') -%>

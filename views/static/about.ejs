@@ -1,0 +1,36 @@
+<% include ./inc/header %>
+
+
+<main class="blogdetails_page">
+  <div class="Blogs_wrapr">
+    <div class="container-fluid">
+      <div class="Blog_D_desc">
+        <div class="Blog_d_ttl">
+          <h1 style="text-align: center;"> About </h1>
+        </div>
+        
+        <p> <p><strong>About Us</strong></p><p>Welcome to Futuritech.io, your gateway to the fascinating world of cutting-edge technology and artificial intelligence. At Futuritech, we are passionate about exploring the infinite possibilities that technology brings to our lives, shaping a future that once seemed like science fiction.</p><p><strong>Our Vision</strong></p><p>Our vision is to empower individuals, businesses, and communities to embrace the future with confidence. We believe that by harnessing the power of artificial intelligence and technology, we can usher in a new era of innovation, efficiency, and creativity. At Futuritech, we strive to be the catalyst for positive change, driving conversations and discoveries that pave the way for a smarter tomorrow.</p><p><strong>What We Offer</strong></p><p>Futuritech.io is your one-stop destination for all things related to AI, technology trends, and the future of innovation. Whether you're a seasoned tech enthusiast or just dipping your toes into the world of artificial intelligence, we have something for everyone:</p><ul><li><strong>AI Tools and Resources:</strong> Discover a curated collection of AI tools, resources, and software that can enhance your productivity, streamline your workflows, and unlock new possibilities.</li><li><strong>AI Plugins Marketplace:</strong> Explore our marketplace of AI plugins, where developers showcase their creations, from smart chatbots to advanced data analysis tools, helping you integrate AI seamlessly into your projects.</li><li><strong>AI News and Insights:</strong> Stay up-to-date with the latest trends, breakthroughs, and news in the AI and tech world. Our team of experts scours the web to bring you fresh perspectives and valuable insights.</li><li><strong>Blogs and Articles:</strong> Immerse yourself in a rich array of thought-provoking blogs and articles that delve into the intricate world of technology, AI ethics, industry developments, and more.</li></ul><p><strong>Our Mission</strong></p><p>Our mission at Futuritech.io is to bridge the gap between technology and the people who use it. We are committed to fostering a community that embraces innovation, shares knowledge, and collaborates to shape a future that is not only smarter but also more inclusive and ethical.</p><p><strong>Meet the Team</strong></p><p>Our team consists of dedicated tech enthusiasts, AI experts, and creative minds who are passionate about exploring the frontiers of technology. Together, we are driven by a shared vision of creating a platform that empowers individuals to navigate the complexities of the digital age.</p><p><strong>Contact Us</strong></p><p>Have questions, suggestions, or just want to connect? We'd love to hear from you! Feel free to reach out to us at support@futuritech.io</p><p>Thank you for joining us on this exciting journey of exploration, discovery, and innovation. Welcome to Futuritech.io, where the future is now.</p><p>Sincerely,</p><p>The Futuritech Team</p></p>
+      </div>
+    </div>
+  </div>
+</main>
+<script>
+        //   scroll spy code //
+        $(document).ready(function(){
+            var sectionIds = $('a.nav-link');
+            $(document).scroll(function(){
+                sectionIds.each(function(){
+                    var container = $(this).attr('href');
+                    var containerOffset = $(container).offset().top;
+                    var containerHeight = $(container).outerHeight();
+                    var containerBottom = containerOffset + containerHeight;
+                    var scrollPosition = $(document).scrollTop();
+                    if(scrollPosition < containerBottom - 350 && scrollPosition >= containerOffset - 350){
+                        $(this).addClass('active');
+                    } else{
+                        $(this).removeClass('active');
+                    }
+                });
+            });
+        });
+    </script><% include ./inc/footer %>

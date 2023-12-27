@@ -1,0 +1,88 @@
+<!-- settings.ejs -->
+<%- include('inc/leftbar') -%>
+<%- include('inc/header') -%>
+
+
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <% if(message.success) {%>
+          <div class="card-body">
+            <div class="alert alert-success alert-dismissible" role="alert"> <%= message.success %>
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          </div> 
+        <% }%>
+       
+        <div class="card-body">
+          <form method="POST" id="sliderForm" action="/admin/slider" class="row g-3"> 
+            <% if (data[0].heading) { %>
+              <% const headings = data[0].heading.split('@@'); %>
+              <% headings.forEach((heading, headingIndex) => { %>
+                <div class="col-md-12">
+                  <label class="form-label" for="formValidationName">Heading <%= headingIndex + 1 %></label>
+                  <textarea type="text" id="texteditor<%= headingIndex %>" class="form-control editor" placeholder="Sort No." name="heading[<%= headingIndex %>]"><%= heading %></textarea>
+                  <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"></small>
+                </div>
+                <a href="/admin/slider/delete/<%=headingIndex %>"><button type="button">Delete</button></a>
+              <% }) %> 
+            <% } else{ %>
+              <div class="col-md-12 ">
+                <label class="form-label" for="formValidationName">Heading</label>
+                <textarea type="text" id="texteditor" class="form-control editor" placeholder="Sort No." name="heading[]"></textarea>
+                <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"></small>
+              </div>
+            <% } %>
+              <div class="col-12" id="beforeit">
+                  <button type="submit"  class="btn btn-primary">Submit </button>
+                  <button type="button" id="addMoreButton" class="btn btn-primary">Add More </button>
+              </div> 
+          </form>
+      </div>
+      
+      
+      </div>
+    </div>
+  </div>
+  <hr class="my-5"> 
+  <script src="./ckeditor/ckeditor.js"></script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function () { 
+    const textareas = document.querySelectorAll('.editor');
+    textareas.forEach(function (textarea) {
+      CKEDITOR.replace(textarea);
+  });
+
+  // Handle "Add More" button click
+  const addMoreButton = document.getElementById('addMoreButton');
+  const beforeit = document.getElementById('beforeit');
+  const form = document.getElementById('sliderForm');
+
+  addMoreButton.addEventListener('click', function () {
+    const html = `
+      <div class="col-md-12">
+        <label class="form-label" for="formValidationName">New Heading</label>
+        <textarea type="text" class="form-control editor" placeholder="Sort No." name="heading[]"></textarea>
+        <small style="font-size: 70%; color: #ec1b1b; text-transform: capitalize;"></small>
+      </div>
+    `;
+
+    const newRow = createElementFromHTML(html);
+    form.insertBefore(newRow, beforeit);
+
+    // Initialize CKEditor for the newly added textarea
+    const newTextarea = newRow.querySelector('.editor');
+    CKEDITOR.replace(newTextarea);
+  });
+
+  function createElementFromHTML(htmlString) {
+    const div = document.createElement('div');
+    div.innerHTML = htmlString.trim();
+    return div.firstChild;
+  }
+});
+
+</script>
+  <%- include('inc/footer') -%>
+ 
