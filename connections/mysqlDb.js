@@ -3,10 +3,10 @@
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'futuritech'
+    host: 'https://coderzbar.info/',
+    user: 'u603640889_nodefutur',
+    password: 'Coderzbar@123',
+    database: 'u603640889_nodefutur'
 });
 
 db.connect((err) => {
